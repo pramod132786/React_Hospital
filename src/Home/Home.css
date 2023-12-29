@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.head {
+    background-color: aqua;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-nav {
+    margin-left: 10px;
+}
+
+.nav-link {
+    font-size: medium;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.content {
+    margin-top: 80px; /* Adjust this value to match the height of your fixed header */
+    padding: 20px;
+}
+
+
+
+@media screen and (max-width: 767px) {
+    .nav-link {
+        margin-left: 20px;
+    }
+}
