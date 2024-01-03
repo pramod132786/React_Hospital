@@ -1,0 +1,45 @@
+
+
+
+  
+  .patient-id {
+    font-size: 14px;
+  }
+
+  .patient-top{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    position: static;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1;
+  }
+  
+  /* .patient-details {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    
+  } */
+
+
+  
+  .patient-details h6 {
+    margin-bottom: 10px;
+  }
+  
+  .patient-details .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .book-medical-service {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+  
+  .book-medical-service h6 {
+    margin-bottom: 10px;
+  }
+  

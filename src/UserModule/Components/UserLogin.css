@@ -1,0 +1,81 @@
+/* UserLogin.css */
+
+.container-fluid.login-container {
+    padding-top: 100px; /* Adjust the padding-top based on your header height */
+  }
+  
+  .login-form .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 30px; /* Decreased margin-top */
+  }
+  
+  .login-form .form {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .login-form .form-label {
+    color: #495057; /* Set label color */
+  }
+  
+  .login-form .form-control {
+    border-radius: 5px;
+  }
+  
+  /* Floating Placeholder Styles */
+  .login-form .form-floating {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .login-form .form-floating input {
+    height: 40px; /* Adjust the height based on your design */
+    padding: 10px;
+  }
+  
+  .login-form .form-floating label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    pointer-events: none;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    color: #6c757d; /* Set label color */
+  }
+  
+  .form-floating input:focus ~ label,
+  .form-floating input:not(:placeholder-shown) ~ label {
+    transform: translateY(-100%) scale(0.85);
+    opacity: 0.8;
+  }
+  
+  .d-grid.gap-2 {
+    margin-top: 10px; /* Adjust the margin-top based on your design */
+  }
+  
+  .login-form .btn-success {
+    background-color: #28a745; /* Set button background color */
+    border-color: #28a745; /* Set button border color */
+  }
+  
+  .login-form .btn-success:hover {
+    background-color: #218838; /* Set button background color on hover */
+    border-color: #1e7e34; /* Set button border color on hover */
+  }
+  
+  /* Center the card on larger screens */
+  @media (min-width: 735px) {
+    .login-form .card {
+      margin: 50px auto;
+      max-width: 400px; /* Adjust max-width based on your design */
+    }
+    
+    .login-form .form {
+      max-width: 80%;
+    }
+    
+    .login-form .form-floating label {
+      font-size: 14px; /* Adjusted font size for smaller screens */
+    }
+  }
+  

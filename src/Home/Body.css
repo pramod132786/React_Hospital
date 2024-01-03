@@ -1,0 +1,142 @@
+.body{
+    padding-top: 20px;
+    display:flex;
+    margin-left: 0px;
+}
+.text{
+   
+    margin-left: 30px;
+    padding-top: 100px;
+    text-align:left;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+}
+.text h1{
+    font-size:40px;
+}
+.text p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+    .text {
+        padding-top: 50px; 
+    }
+}
+.body {
+    display: flex;
+    background-attachment: fixed;
+   
+}
+
+
+
+.img img {
+    /* max-width: 100%;  */
+    margin-right: 30px;
+}
+
+
+@media only screen and (max-width: 600px) {
+   .body{
+    display: block;
+   }
+
+    
+}
+
+.body {
+    /* background-color: cadetblue; */
+    background-image: url("hexa.jpg");
+    background-size: cover;
+    background-position: left top;
+    /* background-attachment: fixed; */
+    margin-top: 76px;
+}
+.appoint{
+    /* background-color:#593989; */
+
+
+    color:orange;
+    background-color:#F1F6FB;
+    
+}
+.appoint .card-img-top{
+   
+    border: solid 10px #59398969;
+    
+    
+    
+}
+.appoint .card{
+    width: 30vw;
+    margin-left: 80px;
+    
+}
+.cards{
+    display: flex;
+    margin-top: 40px;
+
+
+
+}
+
+.appoint .card-img-top:hover{
+    border: solid 10px #593989;
+   
+}
+.card-body{
+    background-color:  #59398969;
+}
+.know{
+    margin-top: 50px;
+    padding-bottom: 50px;
+    
+}
+.know .btn{
+    color: white;
+    
+    background-color: #3a196c;
+}
+.specility{
+    color:#340c70;
+    background-color: #59398963;
+}
+/* .sp-card .card-img-top{
+    border: solid 10px 10px 0px 10px #59398969;
+} */
+
+.specility h5{
+    color: white;
+}
+.specility .card{
+    border: solid 10px white;
+    
+}
+.sp-card{
+    display:flex;
+    margin-top: 50px;
+
+}
+
+.sp-card .card-body{
+    background-color: #593989;
+     margin-top: 5px;
+}
+
+.sp-card .card{
+    margin-left: 40px;
+}
+.sp-card-2{
+    display:flex;
+    margin-top: 30px;
+    padding-bottom: 80px;
+}
+.sp-card-2 .card{
+    margin-left: 40px;
+}
+.sp-card-2 .card-body{
+    background-color: #593989;
+    margin-top: 5px;
+}
