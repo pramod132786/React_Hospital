@@ -339,30 +339,30 @@ function BookMedicalService() {
                         <>
                             <div className="row">
                                 <div className="col-md-12">
-                                <table className="table table-hover">
-  <thead>
-    <tr>
-      <th>Code</th>
-      <th>Medical Service</th>
-      <th>Type</th>
-      <th>Test</th>
-      <th>Timings</th>
-      <th>Fee</th>
-    </tr>
-  </thead>
-  <tbody>
-    {selectedFields.map((service, index) => (
-      <tr key={index}>
-        <td>{/* Your code for Code */}</td>
-        <td>{service.service}</td>
-        <td>{service.type}</td>
-        <td>{service.test}</td>
-        <td>{service.morning ? 'Morning ' : ''}{service.evening ? 'Evening' : ''}</td>
-        <td>{/* Your code for Fee */}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
+                                    <table className="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Code</th>
+                                                <th>Medical Service</th>
+                                                <th>Type</th>
+                                                <th>Test</th>
+                                                <th>Timings</th>
+                                                <th>Fee</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {selectedFields.map((service, index) => (
+                                                <tr key={index}>
+                                                    <td>{/* Your code for Code */}</td>
+                                                    <td>{service.service}</td>
+                                                    <td>{service.type}</td>
+                                                    <td>{service.test}</td>
+                                                    <td>{service.morning ? 'Morning ' : ''}{service.evening ? 'Evening' : ''}</td>
+                                                    <td>{/* Your code for Fee */}</td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
 
 
                                 </div>

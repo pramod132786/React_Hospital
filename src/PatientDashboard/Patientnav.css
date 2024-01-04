@@ -1,0 +1,81 @@
+/* Add this CSS in your styles file, e.g., Navbar.css */
+
+/* Default styling */
+.patientnav .navbar {
+    background-color: #516c86;
+    height: 12vh;
+  }
+  
+  .patientnav .navbar-brand img {
+    margin-right: 10px;
+  }
+  
+  .patientnav .navbar-toggler-icon {
+    border-color: #ffffff;
+    
+  }
+  
+  .patientnav  .navbar-nav .nav-link {
+    color: #ffffff;
+    
+  
+  }
+  
+
+
+
+  .patientnav .navbar-dark .navbar-nav .nav-link {
+    text-decoration: none;
+    color: white; /* Set the color you want for the links */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    padding: 10px 15px;
+  }
+  
+  .patientnav .navbar-dark .navbar-nav .nav-link:hover {
+    color: #3b28a7; /* Set the color you want for the links on hover */
+    transform: scale(1.1); /* Set the zoom effect */
+    text-decoration:none; /* Underline the text on hover */
+    background-color: #f8f8f8; /* Add a background color on hover */
+    border-radius: 5px; /* Add rounded corners */
+    box-Shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+  
+.patientnav .patient{
+    position:absolute;
+    left: 2vh;
+    top: 3vh;
+  }
+
+  .patientnav .ml-auto .nav-link{
+   margin-left: 8vh;
+   padding: 2vh;
+
+  }
+
+ 
+  
+  
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    /* Customize styles for small screens here */
+  
+    .patientnav .navbar-toggler {
+      background-color: #ffffff;
+    }
+  
+    .patientnav  .navbar-nav .nav-link {
+      color: #000000;
+      margin-bottom: 10px;
+    }
+  }
+  
+  /* Additional styles for larger screens if needed */
+  @media (min-width: 992px) {
+    /* Customize styles for medium and large screens here */
+  
+    .patientnav   .navbar-nav .nav-link {
+      margin-right: 15px;
+    }
+  }
+  

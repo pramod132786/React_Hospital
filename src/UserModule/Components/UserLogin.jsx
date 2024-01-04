@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UserService from "../Services/UserService";
+import { useNavigate } from 'react-router-dom';
 
 function UserLogin({ onClose }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [accountLockedError, setAccountLockedError] = useState("");
-
+     
+        const navigate = useNavigate();
 
     const login = async () => {
 
@@ -26,18 +28,13 @@ function UserLogin({ onClose }) {
 
             console.log(response);
 
-            // const response = await fetch('http://localhost:8080/api/v1/user/login', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify({userEmail: email,pazzwd : password }),
-            // });
+           
 
-            // const data = await response.json();
-
-            if (response.ok) {
+            if (response.status===200) {
                 // console.log(data.message);
+                 navigate(`/PatientDashbord?email=${email}`);
+               // navigate(`/PatientDashboard?email=${encodeURIComponent(email)}`);
+                
 
             } else {
                 // setError(data.message);
@@ -45,10 +42,11 @@ function UserLogin({ onClose }) {
         } catch (err) {
             // localStorage.setItem('isLoggedIn', false);
             
-            setAccountLockedError(err.response.data);
-            setTimeout(() => {
-                window.location.reload();
-            }, 3000);
+            // setAccountLockedError(err.response.data);
+            console.log(err);
+            // setTimeout(() => {
+            //     window.location.reload();
+            // }, 3000);
         }
     };
 

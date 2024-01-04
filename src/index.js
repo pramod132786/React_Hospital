@@ -9,13 +9,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.js';
-// index.js or index.jsx
-
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
-
-
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

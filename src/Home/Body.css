@@ -38,14 +38,49 @@
 }
 
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
    .body{
     display: block;
    }
-
+  .card-body {
+   
+   
+    height:fit-content;
+  }
+  .card-text{
+    height:auto;
+    text-wrap:wrap;
+  }
+  .card-title{
+    height:auto;
+  }
     
-}
+} */
 
+@media only screen and (max-width: 600px) {
+    .body {
+      display: block;
+    }
+  
+    .card-body {
+      height: fit-content;
+    }
+  
+    .card-text {
+      height: auto;
+      overflow: hidden; /* This will hide any overflowing text */
+      text-overflow: ellipsis; /* This will add an ellipsis (...) to indicate there's more text */
+      white-space: nowrap; /* This will prevent the text from wrapping */
+    }
+  
+    .card-title {
+      height: auto;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  
 .body {
     /* background-color: cadetblue; */
     background-image: url("hexa.jpg");
@@ -86,7 +121,7 @@
     border: solid 10px #593989;
    
 }
-.card-body{
+.appoint .card-body{
     background-color:  #59398969;
 }
 .know{

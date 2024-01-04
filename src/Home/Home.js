@@ -3,6 +3,7 @@ import './Home.css';
 import medi from './medical-team.png';
 import Body from './Body';
 import UserLogin from '../UserModule/Components/UserLogin';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -66,7 +67,7 @@ const Home = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  <a className="nav-link active" href="/PatientRegister">
                     Patience Login
                   </a>
                 </li>
@@ -77,9 +78,14 @@ const Home = () => {
                 </li>
               </ul>
             </div>
-            <button type="button" className="btn btn-primary" style={{ padding: "10px" }}>
+            {/* <button type="button" className="btn btn-primary" style={{ padding: "10px" }}>
               Make an Appointment
-            </button>
+            </button> */}
+             <button type="button" className="btn btn-primary" style={{ padding: "10px" }}>
+        <Link to="/appointment" style={{ color: 'white', textDecoration: 'none' }}>
+          Make an Appointment
+        </Link>
+      </button>
           </div>
         </nav>
       </div>
