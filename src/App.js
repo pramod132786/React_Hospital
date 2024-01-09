@@ -10,6 +10,9 @@ import PatientRegistration from './Patient/PatientRegistration';
 import PatientHome from './PatientDashboard/PatientHome';
 import BookMedicalService from './Patient/Components/BookMedicalService';
 import DoctorDashboard from './DoctorModule/Components/DoctorDashBoard';
+import InPatientBody from './DoctorModule/Components/InPatientBody';
+import InPatients from './DoctorModule/Components/InPatients';
+import OutPatientSideBar from './DoctorModule/Components/OutPatientsSideBar';
 
 
 function App() {
@@ -26,7 +29,8 @@ function App() {
         <Route path="/PatientDashbord" element={<PatientHome></PatientHome>}/>
         <Route path="/book-medical" element={<BookMedicalService></BookMedicalService>}/>
         <Route path="/doctor" element={<DoctorDashboard></DoctorDashboard>}/>
-
+        <Route path="/in-patient" element={<InPatientBody />} />
+        <Route path="/out-patient" element={<OutPatientSideBar />} />
        </Routes>
        </BrowserRouter>
 

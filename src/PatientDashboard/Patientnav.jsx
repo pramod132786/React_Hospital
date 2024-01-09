@@ -1,4 +1,3 @@
-// Navbar.js
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Patientnav.css';
@@ -20,7 +19,7 @@ const Patientnav = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <a href="/payment" className="nav-link">
+            <a href="/appointment" className="nav-link">
               Book Dr Appointment
             </a>
             <a href="/book-medical" className="nav-link">

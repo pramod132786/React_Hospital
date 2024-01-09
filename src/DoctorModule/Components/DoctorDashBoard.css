@@ -1,93 +1,208 @@
 body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .wrapper {
-    display: flex;
-    width: 100%;
-  }
-  
-  #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100vh;
-    background: #343a40;
-    color: white;
-    transition: all 0.3s;
-    border-radius: 15px; /* Add border-radius for curved effect */
-  }
-  
-  #sidebar.active {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+  background: #5646eb;
+  color: white;
+  transition: all 0.3s;
+  border-radius: 15px;
+}
+
+/* #sidebar.active {
     margin-left: -250px;
+  } */
+
+#content {
+  width: 100%;
+  padding: 15px;
+  transition: all 0.3s;
+}
+
+.sidebar-header {
+  padding: 20px;
+}
+
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid #3a3e3e;
+}
+
+#sidebar ul p {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+
+#sidebar ul li a {
+  padding: 15px;
+  font-size: 1.1em;
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+#sidebar ul li a:hover {
+  color: #12563e;
+  background: #ffffff29;
+  border-radius: 15px;
+}
+
+#sidebar ul li.active>a,
+#sidebar a[aria-expanded="true"] {
+  color: #fff;
+  background: #007bff;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: #ffffff29;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+
+
+  #sidebar.active {
+    margin-left: 0;
   }
-  
+
   #content {
     width: 100%;
     padding: 15px;
-    transition: all 0.3s;
   }
-  
-  .sidebar-header {
-    padding: 20px;
-  }
-  
-  #sidebar ul.components {
-    padding: 20px 0;
-    border-bottom: 1px solid #47748b;
-  }
-  
-  #sidebar ul p {
-    padding: 10px;
-    font-size: 1.1em;
+
+  #sidebarCollapse {
     display: block;
-  }
-  
-  #sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    z-index: 1;
     color: white;
-    text-decoration: none; /* Remove underlines */
   }
-  
-  #sidebar ul li a:hover {
-    color: #007bff;
-    background: #ffffff29;
-    border-radius: 15px;
+
+  #sidebar.collapsed {
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 100vh;
+    width: 10px;
   }
-  
-  #sidebar ul li.active > a,
-  #sidebar a[aria-expanded="true"] {
-    color: #fff;
-    background: #007bff;
+
+  #sidebar.collapsed ul.components {
+    padding: 20px 0;
   }
-  
-  ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #ffffff29;
+
+  #sidebar.collapsed ul li a {
+    padding: 15px;
+    text-align: center;
   }
-  
-  /* Mobile responsiveness */
-  @media (max-width: 768px) {
-    #sidebar {
-      margin-left: -250px;
-    }
-    #sidebar.active {
-      margin-left: 0;
-    }
-    #content {
-      width: 100%;
-      padding: 15px;
-    }
-    #sidebarCollapse {
-      display: block;
-      position: fixed;
-      left: 15px;
-      top: 15px;
-      z-index: 1;
-      color: white;
-    }
+
+  #sidebar.collapsed #sidebarCollapse {
+    display: block;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1;
+    color: white;
   }
-  
+
+  .sidebar-collapsed #sidebarCollapse {
+    display: block;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 1;
+    color: white;
+  }
+
+  .sidebar-collapsed #sidebar .sidebar-header h3 Link {
+    display: none;
+  }
+}
+
+
+@media(min-width: 768px) {
+  #sidebarCollapse {
+    display: block;
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    z-index: 1;
+    color: white;
+  }
+}
+
+
+
+#sidebar.collapsed {
+  min-width: 80px;
+  max-width: 80px;
+  min-height: 100vh;
+  width: 10px;
+
+}
+
+#sidebar.collapsed ul.components {
+  padding: 20px 0;
+}
+
+#sidebar.collapsed ul li a {
+  padding: 20px;
+  text-align: center;
+}
+
+#sidebar.collapsed #sidebarCollapse {
+  display: block;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 1;
+  color: white;
+}
+
+.sidebar-collapsed #sidebarCollapse {
+  display: block;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 1;
+  color: white;
+}
+
+.sidebar-collapsed #sidebar .sidebar-header h3 Link {
+  display: none;
+}
+
+/* .patient-dropdown {
+  border-radius: 10px;
+  background-Color: #5646eb
+} */
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  margin-left: 40rem;
+  margin-right: 40rem;
+
+}
+
+/* .btn { 
+  background-color: green; 
+}  */
+
+/* .name { 
+  text-align: center; 
+  color: green; 
+}  */
