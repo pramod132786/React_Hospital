@@ -1,14 +1,14 @@
-body {
+.DoctorSide body {
   margin: 0;
   padding: 0;
 }
 
-.wrapper {
+.DoctorSide .wrapper {
   display: flex;
   width: 100%;
 }
 
-#sidebar {
+.DoctorSide #sidebar {
   min-width: 250px;
   max-width: 250px;
   min-height: 100vh;
@@ -22,28 +22,28 @@ body {
     margin-left: -250px;
   } */
 
-#content {
+  .DoctorSide #content {
   width: 100%;
   padding: 15px;
   transition: all 0.3s;
 }
 
-.sidebar-header {
+.DoctorSide .sidebar-header {
   padding: 20px;
 }
 
-#sidebar ul.components {
+.DoctorSide #sidebar ul.components {
   padding: 20px 0;
   border-bottom: 1px solid #3a3e3e;
 }
 
-#sidebar ul p {
+.DoctorSide #sidebar ul p {
   padding: 10px;
   font-size: 1.1em;
   display: block;
 }
 
-#sidebar ul li a {
+.DoctorSide #sidebar ul li a {
   padding: 15px;
   font-size: 1.1em;
   display: block;
@@ -51,38 +51,38 @@ body {
   text-decoration: none;
 }
 
-#sidebar ul li a:hover {
+.DoctorSide #sidebar ul li a:hover {
   color: #12563e;
   background: #ffffff29;
   border-radius: 15px;
 }
 
-#sidebar ul li.active>a,
+.DoctorSide #sidebar ul li.active>a,
 #sidebar a[aria-expanded="true"] {
   color: #fff;
   background: #007bff;
 }
 
-ul ul a {
+.DoctorSide ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: #ffffff29;
+ 
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
 
 
-  #sidebar.active {
+  .DoctorSide #sidebar.active {
     margin-left: 0;
   }
 
-  #content {
+  .DoctorSide  #content {
     width: 100%;
     padding: 15px;
   }
 
-  #sidebarCollapse {
+  .DoctorSide  #sidebarCollapse {
     display: block;
     position: fixed;
     left: 15px;
@@ -91,23 +91,23 @@ ul ul a {
     color: white;
   }
 
-  #sidebar.collapsed {
+  .DoctorSide  #sidebar.collapsed {
     min-width: 80px;
     max-width: 80px;
     min-height: 100vh;
     width: 10px;
   }
 
-  #sidebar.collapsed ul.components {
+  .DoctorSide  #sidebar.collapsed ul.components {
     padding: 20px 0;
   }
 
-  #sidebar.collapsed ul li a {
+  .DoctorSide  #sidebar.collapsed ul li a {
     padding: 15px;
     text-align: center;
   }
 
-  #sidebar.collapsed #sidebarCollapse {
+  .DoctorSide  #sidebar.collapsed #sidebarCollapse {
     display: block;
     position: fixed;
     left: 20px;
@@ -116,7 +116,7 @@ ul ul a {
     color: white;
   }
 
-  .sidebar-collapsed #sidebarCollapse {
+  .DoctorSide  .sidebar-collapsed #sidebarCollapse {
     display: block;
     position: fixed;
     left: 20px;
@@ -125,14 +125,14 @@ ul ul a {
     color: white;
   }
 
-  .sidebar-collapsed #sidebar .sidebar-header h3 Link {
+  .DoctorSide  .sidebar-collapsed #sidebar .sidebar-header h3 Link {
     display: none;
   }
 }
 
 
 @media(min-width: 768px) {
-  #sidebarCollapse {
+  .DoctorSide  #sidebarCollapse {
     display: block;
     position: fixed;
     left: 15px;
@@ -144,7 +144,7 @@ ul ul a {
 
 
 
-#sidebar.collapsed {
+.DoctorSide #sidebar.collapsed {
   min-width: 80px;
   max-width: 80px;
   min-height: 100vh;
@@ -152,16 +152,16 @@ ul ul a {
 
 }
 
-#sidebar.collapsed ul.components {
+.DoctorSide #sidebar.collapsed ul.components {
   padding: 20px 0;
 }
 
-#sidebar.collapsed ul li a {
+.DoctorSide #sidebar.collapsed ul li a {
   padding: 20px;
   text-align: center;
 }
 
-#sidebar.collapsed #sidebarCollapse {
+.DoctorSide #sidebar.collapsed #sidebarCollapse {
   display: block;
   position: fixed;
   left: 20px;
@@ -170,7 +170,7 @@ ul ul a {
   color: white;
 }
 
-.sidebar-collapsed #sidebarCollapse {
+.DoctorSide .sidebar-collapsed #sidebarCollapse {
   display: block;
   position: fixed;
   left: 20px;
@@ -179,7 +179,7 @@ ul ul a {
   color: white;
 }
 
-.sidebar-collapsed #sidebar .sidebar-header h3 Link {
+.DoctorSide .sidebar-collapsed #sidebar .sidebar-header h3 Link {
   display: none;
 }
 
@@ -188,11 +188,11 @@ ul ul a {
   background-Color: #5646eb
 } */
 
-.dropdown:hover .dropdown-menu {
+.doctor-drop-patients:hover .patient-dropdown {
   display: block;
 }
 
-.dropdown-menu {
+.patient-dropdown {
   margin-left: 40rem;
   margin-right: 40rem;
 

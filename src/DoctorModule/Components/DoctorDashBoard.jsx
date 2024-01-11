@@ -34,6 +34,7 @@ function DoctorDashboard() {
   };
 
   return (
+    <div className="DoctorSide">
     <div className={`wrapper ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
       {/* Sidebar */}
       <nav id="sidebar" className={` ${sidebarCollapsed ? 'collapsed' : ''}`}>
@@ -55,7 +56,8 @@ function DoctorDashboard() {
             </Link>
           </li>
 
-          <li class=" dropdown  ">
+    
+          <li class=" dropdown doctor-drop-patients ">
             <Link class=" dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
               <FontAwesomeIcon icon={faHospital} className="mr-2 me-2" />
               <span className="text-black">
@@ -74,7 +76,7 @@ function DoctorDashboard() {
 
             </ul>
           </li>
-
+    
 
 
 
@@ -156,6 +158,7 @@ function DoctorDashboard() {
           </Routes>
         </div>
       </div>
+    </div>
     </div>
   );
 }

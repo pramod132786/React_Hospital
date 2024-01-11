@@ -1,3 +1,4 @@
+// Navbar.js
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Patientnav.css';
@@ -19,10 +20,10 @@ const Patientnav = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <a href="/appointment" className="nav-link">
+            <a href="/payment" className="nav-link">
               Book Dr Appointment
             </a>
-            <a href="/book-medical" className="nav-link">
+            <a href="/doctorprofile" className="nav-link">
               Book Medical Service
             </a>
             <a href="/general-checkup" className="nav-link">
@@ -34,7 +35,7 @@ const Patientnav = () => {
             <a href="/patientreg" className="nav-link">
               View History
             </a>
-            <a href="/profile" className="nav-link">
+            <a href="/" className="nav-link">
               Logout
             </a>
           </Nav>

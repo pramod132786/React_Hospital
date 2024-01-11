@@ -4,6 +4,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import appoint from "./appoint.jpg";
+import { FaUserMd, FaUser, FaCalendarAlt, FaStethoscope, FaPhoneAlt, FaClock } from 'react-icons/fa';
+import './styles.css';
 
 const AddAppointment = () => {
   const navigate = useNavigate();
@@ -22,6 +25,7 @@ const AddAppointment = () => {
   const [nameError, setNameError] = useState('');
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
   const [message, setMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   useEffect(() => {
     fetchDoctorSpecialties();
@@ -103,12 +107,29 @@ const AddAppointment = () => {
         doctor: input.selected_doctor,
       });
 
-      if (response.status === 200) {
-        setMessage(`Success! Serial Number: ${response.data.serialNumber}`);
-        setTimeout(() => {
-          window.location.reload();
-        }, 3000);
-      } else {
+      // if (response.status === 200) {
+      //   // setMessage(`Success! Serial Number: ${response.data.serialNumber}`);
+      //   setSuccessMessage(response.data);
+      //   setTimeout(() => {
+      //     window.location.reload();
+      //   }, 3000);
+      // }
+    const isSuccessMessage = response.data.includes('Appointment successfully booked');
+
+if (response.status === 200) {
+  if (isSuccessMessage) {
+    setSuccessMessage(response.data);
+  } else {
+    setMessage(response.data);
+  }
+
+  setTimeout(() => {
+    window.location.reload();
+  }, 4000);
+}
+
+       else {
+        // setMessage(`Error: ${response.data.error}`);
         setMessage(`Error: ${response.data.error}`);
         setTimeout(() => {
           window.location.reload();
@@ -117,9 +138,9 @@ const AddAppointment = () => {
     } catch (error) {
       console.error('Error during submission:', error.message);
       setMessage('Error during submission. Please check mobile number.');
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 3000);
     }
   };
 
@@ -154,15 +175,20 @@ const AddAppointment = () => {
   };
 
   return (
-    <div className="container mt-4" >
-      <div className="card p-4" >
+    <div className='row ' style={{display:"flex"}} >
+      <div className='col-md-4'>
+        
+        <img src={appoint} width={"400px"} height={"500px"}></img>
+      </div>
+    <div className="container mt-4 col-md-8" >
+      <div className="card p-4" style={{marginRight:"30px",marginTop:"20px",boxShadow:"8px 8px 8px rgb(52, 170, 160)",border:"solid 2px rgb(52, 170, 160)"}}>
         <form onSubmit={handleFormSubmit}>
-          <h2 className="mb-4">Add Appointment</h2>
+          <h2 className="mb-4" style={{color:"rgb(52, 170, 160)",fontSize:"bold"}}>Add Appointment</h2>
 
           <div className="row g-3">
             <div className="col-6">
               <label htmlFor="doctorSpecialty" className="form-label">
-                Select Doctor Specialty
+              <FaUserMd color="blue" size={20} /> Select Doctor Specialty
               </label>
               <select
                 className="form-select"
@@ -183,7 +209,7 @@ const AddAppointment = () => {
 
             <div className="col-6">
               <label htmlFor="doctor" className="form-label">
-                Select Doctor
+              <FaStethoscope color="green" size={20} />  Select Doctor
               </label>
               <select
                 className="form-select"
@@ -204,7 +230,7 @@ const AddAppointment = () => {
 
             <div className="col-6">
               <label htmlFor="patientName" className="form-label">
-                Patient's Name
+              <FaUser color="purple" size={20} />  Patient's Name
               </label>
               <input
                 type="text"
@@ -223,7 +249,7 @@ const AddAppointment = () => {
 
             <div className="col-6">
               <label htmlFor="patientPhone" className="form-label">
-                Patient's Phone
+              <FaPhoneAlt color="teal" size={20} />  Patient's Phone
               </label>
               <input
                 type="tel"
@@ -245,7 +271,7 @@ const AddAppointment = () => {
 
             <div className="col-6">
               <label htmlFor="appointmentDate" className="form-label">
-                Appointment Date
+              <FaCalendarAlt color="orange" size={20} />   Appointment Date
               </label>
               <input
                 type="date"
@@ -262,7 +288,7 @@ const AddAppointment = () => {
 
             <div className="col-6">
               <label htmlFor="timeSlot" className="form-label">
-                Select Time Slot
+              <FaClock color="red" size={20} /> Select Time Slot
               </label>
               <select
                 className="form-select"
@@ -297,7 +323,7 @@ const AddAppointment = () => {
               </button>
             </div>
 
-            <div className="col-12 mt-4">
+            {/* <div className="col-12 mt-4">
               {message && (
                 <div
                   className={`alert ${
@@ -308,10 +334,24 @@ const AddAppointment = () => {
                   {message}
                 </div>
               )}
-            </div>
+            </div> */}
+           <div className="col-12 mt-4">
+  {(message || successMessage) && (
+    <div
+      className={`alert ${successMessage ? 'alert-success' : 'alert-danger'}`}
+      role="alert"
+    >
+      {message || successMessage}
+    </div>
+  )}
+</div>
+
+
+
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };

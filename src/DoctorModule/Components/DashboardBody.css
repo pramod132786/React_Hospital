@@ -1,13 +1,13 @@
 @media (min-width: 768px) {
-    .report-cards .icon-card {
+    .DoctorDash .report-cards .icon-card {
         margin: 50px;
     }
 }
 
-.text-greet {
+.DoctorDash .text-greet {
     text-shadow: 2px 2px 4px #000000;
 }
 
-.bordershadow:hover {
+.DoctorDash .bordershadow:hover {
     box-shadow: 0 0 8px 3px #3498db;
 }

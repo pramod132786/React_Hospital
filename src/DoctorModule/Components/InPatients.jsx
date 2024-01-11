@@ -12,6 +12,8 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons";
 import InPatientBody from "./InPatientBody";
+import InPatientsReports from "./InPatientsReports";
+import DoctorDashboard from "./DoctorDashBoard";
 
 const InPatients = () => {
 
@@ -22,6 +24,7 @@ const InPatients = () => {
     };
 
     return (
+        <div className="DoctorSide">
         <div className={`wrapper ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
             {/* Sidebar */}
             <nav id="sidebar" className={` ${sidebarCollapsed ? 'collapsed' : ''}`}>
@@ -50,7 +53,7 @@ const InPatients = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/doctor-profile">
+                        <Link to="/in-patient-reports">
                             <FontAwesomeIcon icon={faList} className="mr-2 me-2" />
                             <span className="text-black">
                                 {!sidebarCollapsed ? 'Test Reports' : null}
@@ -88,43 +91,11 @@ const InPatients = () => {
                 >
                     <FontAwesomeIcon icon={faAlignLeft} />
                 </button>
-
-
-
-
-                <div className="container-fluid">
-
-                    <Routes>
-                        {/* <Route path="/" element={<DashboardBody />} /> */}
-                        <Route path="/patient-details" element={<PatientDetails />} />
-                        <Route path="/in-patient" element={<InPatientBody />} />
-                        <Route path="/out-patient" element={<OutPatient />} />
-                        <Route path="/doctor-profile" element={<DoctorProfile />} />
-                        <Route path="/appointments" element={<Appointments />} />
-                        <Route path="/surgeries" element={<Surgeries />} />
-                        <Route path="/patient-viewed" element={<PatientViewed />} />
-                        <Route path="/logout" element={<Logout />} />
-                    </Routes>
-                </div>
+                
             </div>
+        </div>
         </div>
     );
 }
-
-// Dummy content components for each route
-const Dashboard = () => <h2> </h2>;
-const PatientDetails = () => <h2>Patient Details</h2>;
-
-const OutPatient = () => <h2>Out Patient</h2>;
-const DoctorProfile = () => <h2>Doctor Profile</h2>;
-const Appointments = () => <h2>Doctor Appointments</h2>;
-const Surgeries = () => <h2>Surgeries</h2>;
-const PatientViewed = () => <h2>Patient Viewed</h2>;
-const Logout = () => <h2>Logout</h2>;
-
-
-
-
-
 
 export default InPatients;

@@ -67,12 +67,12 @@ const Home = () => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="/PatientRegister">
+                  <a className="nav-link active" href="/PatientLogin">
                     Patience Login
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="/login" onClick={openLoginModal}>
+                  <a className="nav-link active" href="/commanLogin" onClick={openLoginModal}>
                     Login
                   </a>
                 </li>

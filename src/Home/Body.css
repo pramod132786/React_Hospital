@@ -161,7 +161,7 @@
 }
 
 .sp-card .card{
-    margin-left: 40px;
+    margin-left: 10px;
 }
 .sp-card-2{
     display:flex;
@@ -169,7 +169,9 @@
     padding-bottom: 80px;
 }
 .sp-card-2 .card{
-    margin-left: 40px;
+    margin-left: 10px;
+   
+    margin-top: 50px;
 }
 .sp-card-2 .card-body{
     background-color: #593989;

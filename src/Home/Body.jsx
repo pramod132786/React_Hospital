@@ -30,14 +30,13 @@ const Body = () => {
     </div>
    <div className='appoint'>
     
-    {/* <img src={calender} height={"40px"} width={"40px"} ></img>
-    <h5 style={{display:'inline',paddingLeft:"20px"}}>Request An Appointment</h5> */}
+   
     <h1 style={{paddingTop:"40px"}}> OUR DOCTORS</h1>
      <div className='cards'>
     <div class="card" style = {{width :"18rem"}}>
   <img class="card-img-top" src={surgeon} alt="Card image cap"/>
   <div class="card-body">
-    <h5 class="card-title">DOCTER</h5>
+    <h5 class="card-title">DOCTOR</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     
   </div>
@@ -46,7 +45,7 @@ const Body = () => {
 <div class="card" style = {{width :"18rem"}}>
   <img class="card-img-top" src={surgeon1} alt="Card image cap"/>
   <div class="card-body">
-    <h5 class="card-title">DOCTER</h5>
+    <h5 class="card-title">DOCTOR</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     
   </div>
@@ -55,7 +54,7 @@ const Body = () => {
 <div class="card" style = {{width :"18rem"}}>
   <img class="card-img-top" src={surgeon} alt="Card image cap"/>
   <div class="card-body">
-    <h5 class="card-title">DOCTER </h5>
+    <h5 class="card-title">DOCTOR </h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     
   </div>
@@ -69,7 +68,11 @@ const Body = () => {
    <div className='specility'>
     
    <h1 style={{paddingTop:"40px"}}> OUR SPECIALITIES</h1>
-   <div className='sp-card'>
+
+  <div className='container'>
+   <div className='sp-card row' style={{paddingTop:"30px"}}>
+   <div className='col-md-3'>
+   <a href="/Register" style={{ textDecoration: 'none' }}>
    <div class="card" style = {{width :"16rem"}}>
   <img src={cardio} class="card-img-top" alt="..."/>
   <div class="card-body">
@@ -77,15 +80,20 @@ const Body = () => {
    
     </div>
   </div>
-
-  <div class="card" style = {{width :"16rem"}}>
-  <img src={ent} class="card-img-top" alt="..."/>
-  <div class="card-body">
-  <h5 class="card-title">ENT</h5>
-    
+</a>
+</div>
+<div className='col-md-3'>
+  <a href="/Register" style={{ textDecoration: 'none' }}>
+  <div className="card" style={{ width: "16rem" }}>
+    <img src={ent} className="card-img-top" alt="..." />
+    <div className="card-body">
+      <h5 className="card-title">ENT</h5>
     </div>
   </div>
-
+</a>
+</div>
+<div className='col-md-3'>
+<a href="/Register" style={{ textDecoration: 'none' }}>
   <div class="card" style = {{width :"16rem"}}>
   <img src={gen} class="card-img-top" alt="..."/>
   <div class="card-body">
@@ -93,16 +101,25 @@ const Body = () => {
   
     </div>
   </div>
+</a>
+</div>
 
+<div className='col-md-3'>
+<a href="/Register" style={{ textDecoration: 'none' }}>
   <div class="card" style = {{width :"16rem"}}>
   <img src={gensurgy} class="card-img-top" alt="..."/>
   <div class="card-body">
   <h5 class="card-title">GENERAL SURGERY</h5>
    
     </div>
-  </div>  
+  </div> 
+  </a> 
+  </div>
 </div>
-<div className='sp-card-2'>
+
+<div className='sp-card-2 row' >
+<div className='col-md-3'>
+<a href="/Register" style={{ textDecoration: 'none' }}>
   <div class="card" style = {{width :"16rem"}}>
   <img src={gastro} class="card-img-top" alt="..."/>
   <div class="card-body">
@@ -110,6 +127,11 @@ const Body = () => {
     
     </div>
   </div>
+  </a>
+  </div>
+
+  <div className='col-md-3'>
+  <a href="/Register" style={{ textDecoration: 'none' }}>
   <div class="card" style = {{width :"16rem"}}>
   <img src={pediatrics} class="card-img-top" alt="..."/>
   <div class="card-body">
@@ -117,6 +139,10 @@ const Body = () => {
    
     </div>
   </div>
+  </a>
+  </div>
+  <div className='col-md-3'>
+  <a href="/Register" style={{ textDecoration: 'none' }}>
   <div class="card" style = {{width :"16rem"}}>
   <img src={obg} class="card-img-top" alt="..."/>
   <div class="card-body">
@@ -124,6 +150,10 @@ const Body = () => {
    
     </div>
   </div>
+  </a>
+  </div>
+  <div className='col-md-3'>
+  <a href="/Register" style={{ textDecoration: 'none' }}>
   <div class="card" style = {{width :"16rem"}}>
   <img src={nutro} class="card-img-top" alt="..."/>
   <div class="card-body">
@@ -131,9 +161,12 @@ const Body = () => {
     
     </div>
   </div>
+  </a>
+  </div>
   </div>
 
    </div>
+    </div>
     </div>
   );
 };

@@ -135,6 +135,7 @@ function BookMedicalService() {
 
 
     return (
+        <div className="patientBook">
         <div className="container-fluid mt-2">
             <div className="sticky-md-top sticky-sm-top sticky-lg- patient-top">
                 <div className="row mt-3">
@@ -384,6 +385,7 @@ function BookMedicalService() {
                 </form>
             </div>
         </div >
+        </div>
     );
 }
 

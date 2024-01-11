@@ -2,11 +2,11 @@
 
 
   
-  .patient-id {
+  .patientBook.patient-id {
     font-size: 14px;
   }
 
-  .patient-top{
+  .patientBook .patient-top{
     margin-bottom: 20px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 20px;
@@ -25,21 +25,21 @@
 
 
   
-  .patient-details h6 {
+  .patientBook .patient-details h6 {
     margin-bottom: 10px;
   }
   
-  .patient-details .form-group {
+  .patientBook.patient-details .form-group {
     margin-bottom: 20px;
   }
   
-  .book-medical-service {
+  .patientBook.book-medical-service {
     margin-top: 20px;
     border-top: 1px solid #ddd;
     padding-top: 20px;
   }
   
-  .book-medical-service h6 {
+  .patientBook.book-medical-service h6 {
     margin-bottom: 10px;
   }
   

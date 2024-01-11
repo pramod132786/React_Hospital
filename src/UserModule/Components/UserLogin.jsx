@@ -22,8 +22,8 @@ function UserLogin({ onClose }) {
             console.log(password);
 
             const response = await UserService.userLogin({
-                userEmail: email,
-                pazzwd: password,
+                email: email,
+                pazz: password,
             });
 
             console.log(response);
@@ -33,7 +33,7 @@ function UserLogin({ onClose }) {
             if (response.status===200) {
                 // console.log(data.message);
                  navigate(`/PatientDashbord?email=${email}`);
-               // navigate(`/PatientDashboard?email=${encodeURIComponent(email)}`);
+              
                 
 
             } else {

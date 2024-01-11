@@ -1,7 +1,10 @@
 
-
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import back from  './back.webp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faPhoneAlt, faVenusMars,faShieldAlt, faEnvelope,faExclamationTriangle, faCalendar, faHeartbeat, faWeight, faAddressCard, faTint, faIdCard, faPhone, faHeart, faUserMd, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const PatientRegistration = () => {
   const [formData, setFormData] = useState({
@@ -63,14 +66,14 @@ const PatientRegistration = () => {
         });
 
         if (response.ok) {
-            setSuccessMessage('Form submitted successfully!');
-            setErrorMessage('');
+          setSuccessMessage('Form submitted successfully!');
+          setErrorMessage('');
           console.log('Form submitted successfully:', formData);
           setTimeout(() => {
             window.location.reload();
           }, 3000);
         } else {
-            setErrorMessage(`Error submitting form: ${response.statusText}`);
+          setErrorMessage(`Error submitting form: ${response.statusText}`);
           setSuccessMessage('');
           console.error('Error submitting form:', response.statusText);
           setTimeout(() => {
@@ -82,8 +85,8 @@ const PatientRegistration = () => {
         setSuccessMessage('');
         console.error('Error submitting form:', error.message);
         setTimeout(() => {
-            window.location.reload();
-          }, 3000);
+          window.location.reload();
+        }, 3000);
       }
     }
   };
@@ -136,6 +139,70 @@ const PatientRegistration = () => {
         isValid = false;
       }
     }
+    if (formData.patientName && formData.patientName.length < 4) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        patientName: 'Patient name must be at least 4 characters long.',
+      }));
+      isValid = false;
+    }
+    if (formData.aadhar && !/^[2-9]\d{11}$/.test(formData.aadhar)) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        aadhar: 'Invalid Aadhar number. Please enter a valid 12-digit Aadhar number.',
+      }));
+      isValid = false;
+    }
+    // Assuming formData.bloodGroup is the field for blood group
+    if (formData.bloodGroup && !/^(A|B|AB|O)[\+-]$/.test(formData.bloodGroup)) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        bloodGroup: 'Invalid blood group. Please enter a valid blood group (A, B, AB, O) with an optional Rh factor (+ or -).',
+      }));
+      isValid = false;
+    }
+
+
+    if (formData.emergencyContact && !/^[6-9]{1}[0-9]{9}$/.test(formData.emergencyContact)) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        emergencyContact: 'Invalid emergency contact. Please enter a valid 10-digit emergency contact number starting with a digit between 6 to 9.',
+      }));
+      isValid = false;
+    }
+    // Assuming formData.email is the field for the email address
+    if (formData.email && !/^[a-zA-Z0-9._%+-]+@gmail\.(com|in|net|org)$/i.test(formData.email)) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        email: 'Invalid email address. Please enter a valid Gmail address with domain (com, in, net, org).',
+      }));
+      isValid = false;
+    }
+    // Assuming formData.age is the field for the age
+    if (
+      formData.age === '' ||               // Check if the age is not empty
+      isNaN(formData.age) ||               // Check if the age is not NaN (non-numeric)
+      formData.age < 1 || formData.age > 100 // Check if the age is within the range [1, 100]
+    ) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        age: 'Please enter a valid age between 1 to 100.',
+      }));
+      isValid = false;
+    }
+
+    // Assuming formData.address is the field for the address
+    if (!formData.address) {
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        address: 'Please enter a valid address.',
+      }));
+      isValid = false;
+    }
+
+
+
+
 
     validatePhone();
     validateAge();
@@ -144,16 +211,27 @@ const PatientRegistration = () => {
   };
 
   return (
-    <div className="container mt-4">
-        <h2>Patient Registration</h2>
-      <div className="row" style={{marginTop:"50px"}}>
+    <div className="container-fluid login-container" style={{ background: 'linear-gradient(to right, #E1E1E1, #D3D3D3)' ,marginTop:"0px"}}>
+       <div className="row" >
+                 
+                 <div className="col-md-12 d-flex justify-content-end">
+                    
+                     <Link to="/" className="btn btn-secondary btn-sm">
+                        
+                         <i className="bi bi-arrow-left text-info"></i>
+                     </Link>
+                 </div>
+                 </div>
+    <div className="container mt-4" >
+      <h2 >Patient Registration</h2>
+      <div className="row" style={{ marginTop: "50px" }}>
         <div className="col-md-4">
 
-            
+
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="patientName" className="form-label">
-                Patient Name
+              <FontAwesomeIcon icon={faUser} style={{ color: 'blue' }} /> Patient Name
               </label>
               <input
                 type="text"
@@ -162,6 +240,17 @@ const PatientRegistration = () => {
                 name="patientName"
                 value={formData.patientName}
                 onChange={handleChange}
+                pattern="^[a-zA-Z\s]$"
+
+                onInput={(e) => {
+                  e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+                  e.target.value = e.target.value.replace(/\s{2,}/g, ' ');
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === ' ' && e.target.selectionStart === 0) {
+                    e.preventDefault();
+                  }
+                }}
                 required
               />
               {formErrors.patientName && (
@@ -170,15 +259,21 @@ const PatientRegistration = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="phone" className="form-label">
-                Phone
+              <FontAwesomeIcon icon={faPhoneAlt} style={{ color: 'green' }} />  Phone
               </label>
               <input
                 type="tel"
                 className={`form-control ${formErrors.phoneNumber ? 'is-invalid' : ''}`}
                 id="phone"
                 name="phoneNumber"
-                value={formData.phoneNumber}
+                value={formData.phoneNumber.slice(0, 10)}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (!/^\d$/.test(e.key) && e.key !== 'Backspace') {
+                    e.preventDefault();
+                  }
+                }}
+                pattern="^[6-9]{1}[0-9]{9}"
                 required
               />
               {formErrors.phoneNumber && (
@@ -187,13 +282,15 @@ const PatientRegistration = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="age" className="form-label">
-                Age
+              <FontAwesomeIcon icon={faCalendar} style={{ color: 'purple' }} /> Age
               </label>
               <input
                 type="number"
                 className={`form-control ${formErrors.age ? 'is-invalid' : ''}`}
                 id="age"
                 name="age"
+                min={1}
+                max={100}
                 value={formData.age}
                 onChange={handleChange}
                 required
@@ -207,7 +304,7 @@ const PatientRegistration = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="gender" className="form-label">
-                Gender
+              <FontAwesomeIcon icon={faVenusMars} style={{ color: 'purple' }} /> Gender
               </label>
               <select
                 className={`form-select ${formErrors.gender ? 'is-invalid' : ''}`}
@@ -228,7 +325,7 @@ const PatientRegistration = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
-                Email
+              <FontAwesomeIcon icon={faEnvelope} style={{ color: 'red' }} /> Email
               </label>
               <input
                 type="email"
@@ -237,13 +334,18 @@ const PatientRegistration = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (e.key === ' ') {
+                    e.preventDefault();
+                  }
+                }}
                 required
               />
               {formErrors.email && <div className="invalid-feedback">{formErrors.email}</div>}
             </div>
             <div className="mb-3">
               <label htmlFor="bloodGroup" className="form-label">
-                Blood Group
+              <FontAwesomeIcon icon={faTint} style={{ color: 'orange' }} />  Blood Group
               </label>
               <input
                 type="text"
@@ -252,6 +354,11 @@ const PatientRegistration = () => {
                 name="bloodGroup"
                 value={formData.bloodGroup}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (e.key === ' ') {
+                    e.preventDefault();
+                  }
+                }}
                 required
               />
               {formErrors.bloodGroup && (
@@ -265,15 +372,21 @@ const PatientRegistration = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="aadhar" className="form-label">
-                Aadhar
+              <FontAwesomeIcon icon={faIdCard} style={{ color: 'brown' }} /> Aadhar
               </label>
               <input
                 type="text"
                 className={`form-control ${formErrors.aadhar ? 'is-invalid' : ''}`}
                 id="aadhar"
                 name="aadhar"
-                value={formData.aadhar}
+                value={formData.aadhar.slice(0, 12)}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  if (!/^\d$/.test(e.key) && e.key !== 'Backspace') {
+                    e.preventDefault();
+                  }
+                }}
+                pattern='/^[2-9]\d{11}$/'
                 required
               />
               {formErrors.aadhar && (
@@ -282,16 +395,24 @@ const PatientRegistration = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="emergencyContact" className="form-label">
-                Emergency Contact
+              <FontAwesomeIcon icon={faExclamationTriangle} style={{ color: 'orange' }} />  Emergency Contact
               </label>
               <input
                 type="text"
                 className={`form-control ${formErrors.emergencyContact ? 'is-invalid' : ''}`}
                 id="emergencyContact"
                 name="emergencyContact"
-                value={formData.emergencyContact}
+                value={formData.emergencyContact.slice(0, 10)}
                 onChange={handleChange}
+
+                onKeyDown={(e) => {
+                  if (!/^\d$/.test(e.key) && e.key !== 'Backspace') {
+                    e.preventDefault();
+                  }
+                }}
+                pattern="^[6-9]{1}[0-9]{9}"
                 required
+
               />
               {formErrors.emergencyContact && (
                 <div className="invalid-feedback">{formErrors.emergencyContact}</div>
@@ -299,7 +420,7 @@ const PatientRegistration = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="diabetics" className="form-label">
-                Diabetics
+              <FontAwesomeIcon icon={faHeartbeat} style={{ color: 'red' }} />  Diabetics
               </label>
               <select
                 className={`form-select ${formErrors.diabetics ? 'is-invalid' : ''}`}
@@ -326,7 +447,7 @@ const PatientRegistration = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="bp" className="form-label">
-                Blood Pressure
+              <FontAwesomeIcon icon={faWeight} style={{ color: 'green' }} />  Blood Pressure
               </label>
               <select
                 className={`form-select ${formErrors.bp ? 'is-invalid' : ''}`}
@@ -350,7 +471,7 @@ const PatientRegistration = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="thyroid" className="form-label">
-                Thyroid
+              <FontAwesomeIcon icon={faShieldAlt} style={{ color: 'green' }} /> Thyroid
               </label>
               <select
                 className={`form-select ${formErrors.thyroid ? 'is-invalid' : ''}`}
@@ -376,7 +497,7 @@ const PatientRegistration = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="address" className="form-label">
-                Address
+              <FontAwesomeIcon icon={faAddressCard} style={{ color: 'navy' }} /> Address
               </label>
               <textarea
                 className={`form-control ${formErrors.address ? 'is-invalid' : ''}`}
@@ -384,6 +505,17 @@ const PatientRegistration = () => {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
+                pattern="^[a-zA-Z0-9\.,/-()]$"
+
+                onInput={(e) => {
+                  e.target.value = e.target.value.replace(/[^a-zA-Z0-9\s.,-/()]/g, '');
+                  e.target.value = e.target.value.replace(/\s{2,}/g, ' ');
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === ' ' && e.target.selectionStart === 0) {
+                    e.preventDefault();
+                  }
+                }}
                 required
               ></textarea>
               {formErrors.address && (
@@ -394,13 +526,33 @@ const PatientRegistration = () => {
         </div>
       </div>
 
-      <div className="text-center">
-      {successMessage && <div className="alert alert-success">{successMessage}</div>}
-        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
-          Register
-        </button>
-      </div>
+      <div className="text-center col-md-12">
+            {successMessage && <div className="alert alert-success">{successMessage}</div>}
+            {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+
+            <div className="row">
+                <div className="col-md-6 mb-3 text-center" >
+                    <button type="submit" className="btn btn-primary" onClick={handleSubmit} style={{marginLeft:"500px"}}>
+                        Register
+                    </button>
+                </div>
+
+                <div className="col-md-6 mb-3">
+                    <div className="text-center fs-6">
+                    <span style={{ fontFamily: 'Your Custom Font', fontSize: '18px', color: '#333', marginRight: '10px' }}>
+                    You have an account, please
+            </span>
+
+            <a href="/PatientLogin" className="btn btn-success" style={{ marginLeft: '0px', fontFamily: 'Your Custom Font' }}>
+                Sign In
+            </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      
+    </div>
     </div>
   );
 };

@@ -22,6 +22,7 @@ const OutPatientSideBar=()=>{
   };
 
 return(
+  <div className="DoctorSide">
     <div className={`wrapper ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
       {/* Sidebar */}
       <nav id="sidebar" className={` ${sidebarCollapsed ? 'collapsed' : ''}`}>
@@ -127,6 +128,7 @@ return(
           </Routes>
         </div>
       </div>
+    </div>
     </div>
   );
 }
