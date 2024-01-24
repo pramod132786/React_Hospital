@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import './PatientInfo.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const PatientInfo = () => {
   const [patientDetails, setPatientDetails] = useState({
@@ -14,16 +14,17 @@ const PatientInfo = () => {
     bloodGroup: '',
     emergencyContact: '',
   });
-  const searchParams = new URLSearchParams(useLocation().search);
-  const email = searchParams.get('email') || "";
+  const { patinetId } = useParams();
+  // const searchParams = new URLSearchParams(useLocation().search);
+  // const id = searchParams.get('id') || "";
 
   useEffect(() => {
     // Fetch patient details from the backend
-    fetch(`http://localhost:9008/patient/${email}`)
+    fetch(`http://localhost:9008/patient/byId/${patinetId}`)
       .then((response) => response.json())
       .then((data) => setPatientDetails(data))
       .catch((error) => console.error('Error fetching patient details:', error));
-  }, [email]); // Include email in the dependency array
+  }, []); // Include email in the dependency array
 
   return (
     <div className="container mt-4">

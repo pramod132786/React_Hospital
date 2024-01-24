@@ -2,9 +2,12 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Patientnav.css';
+import { useParams } from 'react-router-dom';
 
 const Patientnav = () => {
+  const { patinetId } = useParams();
   return (
+
     <div className='patientnav'>
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
@@ -20,10 +23,10 @@ const Patientnav = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <a href="/payment" className="nav-link">
+            <a href="/appointment" className="nav-link">
               Book Dr Appointment
             </a>
-            <a href="/doctorprofile" className="nav-link">
+            <a href={`/book-medical/${patinetId}`} className="nav-link">
               Book Medical Service
             </a>
             <a href="/general-checkup" className="nav-link">

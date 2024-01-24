@@ -26,6 +26,7 @@ const AddAppointment = () => {
   const [selectedTimeSlot, setSelectedTimeSlot] = useState('');
   const [message, setMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const[doctorIds,setDoctorIds]=useState("");
 
   useEffect(() => {
     fetchDoctorSpecialties();
@@ -36,6 +37,7 @@ const AddAppointment = () => {
   const fetchDoctorSpecialties = async () => {
     try {
       const response = await axios.get('http://localhost:9000/specialty/all');
+      console.log(response.data);
       setDoctorSpecialties(response.data);
     } catch (error) {
       console.error('Error fetching specialties:', error.message);
@@ -46,6 +48,9 @@ const AddAppointment = () => {
     try {
       const response = await axios.get(`http://localhost:9000/doctor/${specialtyId}`);
       setDoctorsBySpecialty(response.data);
+      
+      const dd =response.data;
+      console.log("doctors",dd);
     } catch (error) {
       console.error('Error fetching doctors:', error.message);
     }
@@ -63,7 +68,18 @@ const AddAppointment = () => {
     } else if (name === 'doctor_specialty') {
       fetchDoctorsBySpecialty(value);
     }
+    else if (name === 'selected_doctor') {
+      const selectedDoctor = doctorsBySpecialty.find((doctor) => doctor.doctorName === value);
+      if (selectedDoctor) {
+        // Set both doctorName and doctorId in the input state
+        setInput((values) => ({ ...values, doctorName: selectedDoctor.doctorName, doctorId: selectedDoctor.id }));
+      }
+         setDoctorIds(selectedDoctor.doctorId);
+         console.log("id",doctorIds);
+    }
+    
   };
+ 
 
   const validatePhoneNumber = (phoneNumber) => {
     const isValid = /^[6789][0-9]{9}$/.test(phoneNumber);
@@ -105,15 +121,11 @@ const AddAppointment = () => {
         timeSlot: selectedTimeSlot,
         speciality: selectedSpecialty?.specialty,
         doctor: input.selected_doctor,
+        doctorId:doctorIds
       });
+     
 
-      // if (response.status === 200) {
-      //   // setMessage(`Success! Serial Number: ${response.data.serialNumber}`);
-      //   setSuccessMessage(response.data);
-      //   setTimeout(() => {
-      //     window.location.reload();
-      //   }, 3000);
-      // }
+      
     const isSuccessMessage = response.data.includes('Appointment successfully booked');
 
 if (response.status === 200) {

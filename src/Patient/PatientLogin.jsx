@@ -5,6 +5,8 @@ import './Patient.css';
 import patient from './patient.png';
 import medi from './medical-team.png';
 import { Link } from 'react-router-dom';
+import Home from "../Home/Home";
+import Head from "../Home/Head";
 
 
 function PatientLogin() {
@@ -45,13 +47,16 @@ function PatientLogin() {
             if (response.status === 200) {
                 const { status, user } = response.data;
                 const { message } = response.data;
+                console.log(response.data);
                 console.log("message", status);
 
                 if (status  === "Login success") {
                     // Use the correct path for navigation
                     setUser(user);
                     console.log("user",user);
-                    navigate(`/PatientDashbord?email=${email}`);
+                    sessionStorage.setItem("patientId",user.patientId);
+
+                    navigate(`/PatientDashbord/${user.patientId}`);
                 } else if (status  === "Login failed") {
                     setUser(null);
                     setError("Invalid email or password. Please try again.");
@@ -73,9 +78,13 @@ function PatientLogin() {
   
 
     return (
+        <div>
+        <div>
+        <Head></Head>
+        </div>
        <div className="patirntLogin">
         <div className="container-fluid login-container">
-                 <div className="row" >
+                 {/* <div className="row" >
                  
                 <div className="col-md-12 d-flex justify-content-end">
                    
@@ -84,7 +93,7 @@ function PatientLogin() {
                         <i className="bi bi-arrow-left text-info"></i>
                     </Link>
                 </div>
-                </div>
+                </div> */}
         <div className="login">
             <div className="container-fluid">
                 <div className="wrapper">
@@ -111,6 +120,7 @@ function PatientLogin() {
                     {error && <div className="error-message">{error}</div>}
                 </div>
             </div>
+        </div>
         </div>
         </div>
         </div>

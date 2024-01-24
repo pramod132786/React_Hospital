@@ -56,7 +56,7 @@
   }
     
 } */
-
+ 
 @media only screen and (max-width: 600px) {
     .body {
       display: block;
@@ -68,9 +68,9 @@
   
     .card-text {
       height: auto;
-      overflow: hidden; /* This will hide any overflowing text */
-      text-overflow: ellipsis; /* This will add an ellipsis (...) to indicate there's more text */
-      white-space: nowrap; /* This will prevent the text from wrapping */
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      white-space: nowrap;
     }
   
     .card-title {
@@ -80,7 +80,7 @@
       white-space: nowrap;
     }
   }
-  
+   
 .body {
     /* background-color: cadetblue; */
     background-image: url("hexa.jpg");
@@ -142,6 +142,9 @@
     border: solid 10px 10px 0px 10px #59398969;
 } */
 
+/* .specility h3{
+    color:rgba(255, 166, 0, 0.872);
+} */
 .specility h5{
     color: white;
 }
@@ -152,7 +155,7 @@
 .sp-card{
     display:flex;
     margin-top: 50px;
-
+  
 }
 
 .sp-card .card-body{
@@ -177,3 +180,74 @@
     background-color: #593989;
     margin-top: 5px;
 }
+
+.facility{
+    background-color: rgba(210, 197, 218, 0.932);
+    padding-bottom: 90px;
+
+}
+.facility h3{
+    
+    color: rgb(255, 132, 0);
+   
+}
+
+.facility .card{
+    margin-top: 40px;
+    border: solid 10px white;
+    
+}
+
+
+.facility .card .card-body{
+    background-color: #593989;
+     margin-top: 5px;
+}
+
+.facility.card{
+    margin-left: 10px;
+}
+/* .facility .card:hover{
+    background-color: #593989db;
+
+} */
+.facility .hover-content{
+    padding-top: 50px;
+   width: 100%;
+   height: 100%;
+   background-color: #593989eb;
+   color: white;
+   
+}
+.facility .card-title{
+    color: white;
+    /* font-weight: bolder; */
+}
+
+/* CardWithHover.css */
+
+.facility .card {
+    width: 16rem;
+    position: relative;
+  }
+  
+  /* .facility  .card:hover {
+    background-color: #df167b; 
+  } */
+  
+  .facility .hover-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Text color */
+    text-align: center;
+    opacity: 0; /* Initially set opacity to 0 */
+    transition: opacity 0.3s ease-in-out; /* Add transition effect */
+   
+  }
+  
+  .facility .card:hover .hover-content {
+    opacity: 1; /* Set opacity to 1 on hover */
+  }
+  

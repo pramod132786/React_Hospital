@@ -1,0 +1,66 @@
+/* Footer.css */
+
+/* .footer {
+    background-color:linear-gradient( 360deg, #e7751e 0%, #593989 10%, #9459ed 100%);
+    line-height: 30px;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+   */
+   .footer {
+    background: linear-gradient(360deg, #593989 10%, #9459ed 100%);
+    line-height: 30px;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-link:hover {
+    text-decoration: none;
+    color: #FF69B4; /* Pink color on hover */
+  }
+  
+  .list-unstyled {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .list-unstyled li {
+    margin-bottom: 10px;
+  }
+  
+  .list-unstyled li:last-child {
+    margin-bottom: 0;
+  }
+  .contact{
+    margin-left: 60px;
+  }
+  
+  hr{
+   
+    border: none;
+  height: 5px;
+  background-color: #f7f2f2; 
+  color: white;
+  
+  }
+  .footbottom{
+    padding: 10px;
+    padding-top: 20px;
+    background-color: #372254;
+    color: white;
+    text-align: center;
+   
+  }

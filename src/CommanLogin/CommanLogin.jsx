@@ -124,6 +124,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./CommanLogin.css";
 import profile from "./profile.png";
+import Head from "../Home/Head";
+
 
 function CommanLogin() {
   const [email, setEmail] = useState("");
@@ -156,7 +158,9 @@ function CommanLogin() {
         
         if (message === "Doctor login success") {
           console.log("obj",response.data.data.doctorId);
-          navigate(`/doctor`);
+          // navigate(`/doctor`);
+          navigate(`/doctor/${response.data.data.doctorId}`);
+
         } else if (message === "User login success") {
           console.log("obj",response.data.data.userId);
           navigate(`/Register`);
@@ -178,7 +182,11 @@ function CommanLogin() {
   };
 
   return (
+    
+    <div>
+      <div> <Head></Head></div>
     <div className="commanLogin">
+     
       <div className="container-fluid">
         <div className="row main-content bg-success text-center">
           <div className="col-md-4 text-center company__info">
@@ -215,8 +223,8 @@ function CommanLogin() {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <div className="row">
-                    <input type="button" value="Submit" className="btn" onClick={login} />
+                  <div className="row d-flex justify-content-center">
+                    <input type="button" value="login" className="btn" onClick={login} />
                   </div>
                 </form>
               </div>
@@ -230,6 +238,7 @@ function CommanLogin() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

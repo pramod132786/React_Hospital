@@ -1,0 +1,107 @@
+
+
+
+
+.surgeryData.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.surgeryData .card {
+  margin-top: 20px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: linear-gradient(to right, #3498db, #2980b9);
+  color: #fff;
+}
+
+.surgeryData .card-body {
+  padding: 30px;
+}
+
+.surgeryData .list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.surgeryData .list-group-item:hover {
+  transform: scale(1.02);
+}
+
+.surgeryData .list-group-item:last-child {
+  margin-bottom: 0;
+}
+
+.surgeryData .form-control {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.surgeryData .form-control:focus {
+  border-color: #3498db;
+}
+
+.surgeryData .btn-primary {
+  background-color:rgb(255,0,0);
+  border: 1px solid lightslategray;
+  border-radius: 20px;
+  color: #fff;
+  
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  height: 40%;
+}
+
+.surgeryData .btn-primary:hover {
+  background-color:turquoise;
+}
+
+.surgeryData .card-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.surgeryData .card-header {
+  background-color: #3498db;
+  border-radius: 15px 15px 0 0;
+  padding: 20px;
+  text-align: center;
+}
+
+.surgeryData.list-group {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+.surgeryData h1, h2 {
+  color: #3498db;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+
+.surgeryData.fa-calendar-alt,
+.fa-clock {
+  margin-right: 10px;
+  color: #3498db;
+}
+.surgeryData .form-label{
+  font-weight: bold;
+}

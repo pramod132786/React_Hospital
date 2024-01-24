@@ -1,0 +1,22 @@
+
+
+.appointments-container {
+    margin: 10px;
+  }
+  
+ .appointments-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+ .appointments-container th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .appointments-container th {
+    background-color: #f2f2f2;
+  }
+  

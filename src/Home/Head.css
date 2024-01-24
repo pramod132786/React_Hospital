@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    
+}
+
+.headOnly .head {
+    background-color:#9459ed;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    
+}
+
+.headOnly .navbar-nav {
+    margin-left: 10px;
+}
+
+.headOnly.nav-link {
+    font-size: medium;
+    font-weight: bold;
+    margin-left: 20px;
+   
+}
+
+.headOnly.content {
+    margin-top: 80px; /* Adjust this value to match the height of your fixed header */
+    padding: 20px;
+   
+}
+
+
+
+
+@media screen and (max-width: 767px) {
+    .nav-link {
+        margin-left: 20px;
+    }
+}
+.dropdown-menu li a:hover{
+    background-color: rgb(81, 43, 120);
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+.dropdown-menu li {
+   
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-bottom: 1px solid #ccccccc1;
+    text-align: center;
+}

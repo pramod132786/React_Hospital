@@ -12,6 +12,10 @@ import gensurgy   from './gen-surgery-1.webp';
 import nutro   from './neurology.webp';
 import obg  from './obg.webp';
 import pediatrics  from './pediatrics.webp';
+import ecg from './ecg.jpg';
+import icu from './ICU-sunridge.jpg';
+import xray from './x-ray.jpg';
+import ambulance from './ambulance.jpg';
 const Body = () => {
  
 
@@ -31,7 +35,7 @@ const Body = () => {
    <div className='appoint'>
     
    
-    <h1 style={{paddingTop:"40px"}}> OUR DOCTORS</h1>
+    <h3 style={{paddingTop:"40px"}}> OUR DOCTORS</h3>
      <div className='cards'>
     <div class="card" style = {{width :"18rem"}}>
   <img class="card-img-top" src={surgeon} alt="Card image cap"/>
@@ -67,7 +71,7 @@ const Body = () => {
 
    <div className='specility'>
     
-   <h1 style={{paddingTop:"40px"}}> OUR SPECIALITIES</h1>
+   <h3 style={{paddingTop:"40px"}}> OUR SPECIALITIES</h3>
 
   <div className='container'>
    <div className='sp-card row' style={{paddingTop:"30px"}}>
@@ -167,6 +171,69 @@ const Body = () => {
 
    </div>
     </div>
+    <div className='facility'>
+   <h3 style={{paddingTop:"50px"}}> OUR FACILITIES</h3>
+   <div className='container'>
+   <div className='row '>
+   <div className='col-md-3'>
+      <div className="card">
+        <img src={ambulance} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">Ambulance</h5>
+          <div className="hover-content">
+            <h4>Ambulance</h4>
+            <p>24 x 7 Ambulance Facility with O2 facility and drivers experienced in Healthcare facility.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className='col-md-3'>
+    <div class="card" style = {{width :"16rem"}}>
+  <img src={icu} class="card-img-top" alt="..."/>
+  <div class="card-body">
+  <h5 class="card-title">ICU</h5>
+  <div className="hover-content">
+            <h4>ICU</h4>
+            <p>We have a 9 bed fully equipped ICU with Cardiac Monitors, 
+              4 Ventilators and 1 mobile Ventilator and qualified ICU staff with considerable 
+              experience in handling a variety of cases.</p>
+          </div>
+    </div>
+    
+  </div>
+    </div>
+    <div className='col-md-3'>
+    <div class="card" style = {{width :"16rem"}}>
+  <img src={xray} class="card-img-top" alt="..."/>
+  <div class="card-body">
+  <h5 class="card-title">X-Ray</h5>
+  <div className="hover-content">
+            <h4>X-RAY</h4>
+            <p>We have a full-fledged X-Ray room in the hospital.
+               We also have a bedside mobile X-Ray that 
+              can be moved to any corner of the hospital for exposing bed-side X-Ray.</p>
+          </div>
+    </div>
+    
+  </div>
+    </div>
+    <div className='col-md-3'>
+    <div class="card" style = {{width :"16rem"}}>
+  <img src={ecg} class="card-img-top" alt="..."/>
+  <div class="card-body">
+  <h5 class="card-title">ECG</h5>
+  <div className="hover-content">
+            <h4>ECG</h4>
+            <p>We have 2 dedicated ECGs in the hospital and they also provide 
+              complex reading in a simple manner.</p>
+          </div>
+    </div>
+    
+  </div>
+    </div>
+   </div>
+   </div>
+   </div>
     </div>
   );
 };

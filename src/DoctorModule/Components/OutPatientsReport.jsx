@@ -1,70 +1,52 @@
 import React, { useState, useEffect } from "react";
-import "./InPatientsReport.css";
+
 import { BsEye } from "react-icons/bs";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilePdf, faDownload, faArrowsUpDown, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import InPatients from "./InPatients";
-
-const InPatientsReports = () => {
+import "./OutPatientReport.css"
+const OutPatientsReports = () => {
   const { doctorId } = useParams();
   const [testReports, setTestReports] = useState([
+    // Dummy data for out-patient test reports
     {
       id: 1,
-      patientName: "John Doe",
-      age: 30,
-      gender: "Male",
+      patientName: "Alice Doe",
+      age: 25,
+      gender: "Female",
       testName: "Blood Test",
-      testDate: "2024-01-10",
+      testDate: "2024-01-15",
       testPdfUrl: "https://example.com/path/to/pdf1.pdf",
     },
+    // Add more dummy data as needed
     {
         id: 2,
-        patientName: "Pramod",
-        age: 31,
+        patientName: "Bob Smith",
+        age: 30,
         gender: "Male",
-        testName: "blood Test",
-        testDate: "2024-01-10",
-        testPdfUrl: "https://example.com/path/to/pdf1.pdf",
+        testName: "X-Ray",
+        testDate: "2024-01-16",
+        testPdfUrl: "https://example.com/path/to/pdf2.pdf",
       },
       {
         id: 3,
-        patientName: "srikanth",
-        age: 30,
-        gender: "Male",
-        testName: "cancer test",
-        testDate: "2024-01-10",
-        testPdfUrl: "https://example.com/path/to/pdf1.pdf",
+        patientName: "Eve Johnson",
+        age: 28,
+        gender: "Female",
+        testName: "MRI Scan",
+        testDate: "2024-01-17",
+        testPdfUrl: "https://example.com/path/to/pdf3.pdf",
       },
       {
         id: 4,
-        patientName: "Naveen",
-        age: 30,
+        patientName: "John Doe",
+        age: 35,
         gender: "Male",
-        testName: "tyroid",
-        testDate: "2024-01-10",
-        testPdfUrl: "https://example.com/path/to/pdf1.pdf",
+        testName: "Ultrasound",
+        testDate: "2024-01-18",
+        testPdfUrl: "https://example.com/path/to/pdf4.pdf",
       },
-      {
-        id: 5,
-        patientName: "Sunil",
-        age: 30,
-        gender: "Male",
-        testName: "platelet count",
-        testDate: "2024-01-10",
-        testPdfUrl: "https://example.com/path/to/pdf1.pdf",
-      },
-      {
-        id: 6,
-        patientName: "Hussen",
-        age: 30,
-        gender: "Male",
-        testName: "Lung",
-        testDate: "2024-01-10",
-        testPdfUrl: "https://example.com/path/to/pdf1.pdf",
-      },
-    // Add more dummy data as needed
   ]);
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -117,11 +99,14 @@ const InPatientsReports = () => {
       <div className="container-fluid mt-3">
         <div className="row">
           <div className="d-flex justify-content-end">
-            <Link to={`/in-patient/${doctorId}`}>
-              <button className="btn btn-secondary"><FontAwesomeIcon icon={faArrowLeft} className="fs-6 me-1"/>Back</button>
+            <Link to={`/out-patient/${doctorId}`}>
+              <button className="btn btn-secondary">
+                <FontAwesomeIcon icon={faArrowLeft} className="fs-6 me-1" />
+                Back
+              </button>
             </Link>
           </div>
-          <h3 className="text-center fw-bold text-primary mb-4 in-patient-line">In-Patient Test Reports</h3>
+          <h3 className="text-center fw-bold text-primary mb-4 out-patient-line">Out-Patient Test Reports</h3>
         </div>
         <nav className="navbar">
           <div className="container-fluid d-flex justify-content-end">
@@ -138,29 +123,28 @@ const InPatientsReports = () => {
           </div>
         </nav>
         <div className="container">
-          <table className="table table-hover">
+          <table className="table table-striped table-hover">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Patient Name <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                <th scope="col">Age <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                <th scope="col">Gender <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                <th scope="col">Test Name <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                <th scope="col">Test Date <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                <th scope="col">Test Report-PDF <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                <th scope="col text-center">Action <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                <th>#</th>
+                <th>Patient Name <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                <th>Age <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                <th>Gender <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                <th>Test Name <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                <th>Test Date <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                <th>Test Report-PDF <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                <th>Action <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
               </tr>
             </thead>
-            <tbody className="text-center" >
+            <tbody>
               {filteredReports.length === 0 ? (
                 <tr>
                   <td colSpan="8" className="text-center text-danger fs-5 fst-italic fw-bold">No reports found</td>
                 </tr>
               ) : (
                 filteredReports.map((report, index) => (
-                  <tr key={report.id} className="">
-                    
-                    <th scope="row">{index + 1}</th>
+                  <tr key={report.id} className="text-center">
+                    <td>{index + 1}</td>
                     <td>{report.patientName}</td>
                     <td>{report.age}</td>
                     <td>{report.gender}</td>
@@ -191,4 +175,4 @@ const InPatientsReports = () => {
   );
 };
 
-export default InPatientsReports;
+export default OutPatientsReports;

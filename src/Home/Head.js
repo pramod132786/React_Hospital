@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Home.css';
+import './Head.css';
 import medi from './medical-team.png';
 import Body from './Body';
 import UserLogin from '../UserModule/Components/UserLogin';
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Footer from './Footer'
 
 
-const Home = () => {
+const Head = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   const openLoginModal = () => {
@@ -19,7 +19,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className='headOnly'>
       <div className='head'>
         <nav className="navbar navbar-expand-lg bg-body-primary">
           <div className="container-fluid">
@@ -38,12 +38,12 @@ const Home = () => {
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
-                    About Us
+                  <a className="nav-link active" href="/" style={{color:"white",fontWeight:"bolder"}}>
+                    Home
                   </a>
                 </li>
                 <li className="nav-item dropdown">
-                  <a className="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a className="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style={{color:"white"}}>
                     Specialities
                   </a>
                   <ul className="dropdown-menu active">
@@ -56,27 +56,27 @@ const Home = () => {
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  <a className="nav-link active" href="#" style={{color:"white"}}>
                     Our Doctors
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="#">
+                  <a className="nav-link active" href="#" style={{color:"white"}}>
                     Emergency Service
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="/contact">
+                  <a className="nav-link active" href="/contact" style={{color:"white"}}>
                     Contact Us
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="/PatientLogin">
+                  <a className="nav-link active" href="/PatientLogin" style={{color:"white"}}>
                     Patience Login
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" href="/commanLogin" onClick={openLoginModal}>
+                  <a className="nav-link active" href="/commanLogin" onClick={openLoginModal} style={{color:"white"}}>
                     Login
                   </a>
                 </li>
@@ -94,9 +94,9 @@ const Home = () => {
         </nav>
       </div>
 
-      <div className='containers'>
+      {/* <div className='containers'>
         <Body />
-      </div>
+      </div> */}
       <div className='containers'>
      
       </div>
@@ -115,4 +115,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Head;

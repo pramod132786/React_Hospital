@@ -1,6 +1,6 @@
 import React from "react";
 import "./DoctorDashBoard.css";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAlignLeft,
@@ -14,6 +14,7 @@ import {
 import InPatientBody from "./InPatientBody";
 
 const OutPatientSideBar=()=>{
+  const { doctorId } = useParams();
 
     const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
 
@@ -34,7 +35,7 @@ return(
         </div>
         <ul className="list-unstyled components">
           <li>
-            <Link to="/doctor">
+            <Link to={`/doctor/${doctorId}`}>
               <FontAwesomeIcon icon={faChartLine} className="mr-2 me-2 " />
               <span className="text-black">
                 {!sidebarCollapsed ? 'Dashboard' : null}
@@ -74,7 +75,7 @@ return(
             </Link>
           </li>
           <li>
-            <Link to="/doctor-profile">
+            <Link to="/out-patients-report">
             <FontAwesomeIcon icon={faList} className="mr-2 me-2" />
               <span className="text-black">
                 {!sidebarCollapsed ? 'Test Reports' : null}
@@ -113,36 +114,13 @@ return(
           <FontAwesomeIcon icon={faAlignLeft} />
         </button>
 
-        <div className="container-fluid">
-
-          <Routes>
-            {/* <Route path="/" element={<DashboardBody />} /> */}
-            <Route path="/patient-details" element={<PatientDetails />} />
-            <Route path="/in-patient" element={<InPatientBody />} />
-            <Route path="/out-patient" element={<OutPatient />} />
-            <Route path="/doctor-profile" element={<DoctorProfile />} />
-            <Route path="/appointments" element={<Appointments />} />
-            <Route path="/surgeries" element={<Surgeries />} />
-            <Route path="/patient-viewed" element={<PatientViewed />} />
-            <Route path="/logout" element={<Logout />} />
-          </Routes>
-        </div>
+       
       </div>
     </div>
     </div>
   );
 }
 
-// Dummy content components for each route
-const Dashboard = () => <h2> </h2>;
-const PatientDetails = () => <h2>Patient Details</h2>;
-
-const OutPatient = () => <h2>Out Patient</h2>;
-const DoctorProfile = () => <h2>Doctor Profile</h2>;
-const Appointments = () => <h2>Doctor Appointments</h2>;
-const Surgeries = () => <h2>Surgeries</h2>;
-const PatientViewed = () => <h2>Patient Viewed</h2>;
-const Logout = () => <h2>Logout</h2>;
 
 
 

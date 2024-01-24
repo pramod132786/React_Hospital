@@ -13,7 +13,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 function Registration() {
   const [customerName, setCustomerName] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
-  const[genderError,setGenderError] =useState("");
+  const [genderError, setGenderError] = useState("");
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
   const [gender, setGender] = useState("");
@@ -25,8 +25,8 @@ function Registration() {
   const [addressError, setAddressError] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const validGenders = ["male", "female", "others"];
-  const[bloodGroup,setBloodGroup] = useState("");
-  const[bloodGroupError,setBloodGroupError] = useState("");
+  const [bloodGroup, setBloodGroup] = useState("");
+  const [bloodGroupError, setBloodGroupError] = useState("");
   async function save(event) {
     event.preventDefault();
     if (!isValidEmail || addressError) {
@@ -41,8 +41,8 @@ function Registration() {
         userEmail: emailId,
         pazzwd: password,
         address: address,
-        gender:gender,
-        bloodGroup:bloodGroup
+        gender: gender,
+        bloodGroup: bloodGroup
       });
       setRegistrationSuccess(true);
       setTimeout(() => {
@@ -84,7 +84,7 @@ function Registration() {
     setGenderError(!validGenders.includes(updatedValue));
   };
 
-  
+
 
   return (
     <div className="china">
@@ -148,28 +148,28 @@ function Registration() {
                           <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
-                            <input
-                            type="text"
-                           id="customerName"
-                           class="form-control"
-                           value={customerName}
-                           onChange={(event) => {
-                            const updatedValue = event.target.value;
-                             setCustomerName(updatedValue);
-                            }}
-                             pattern="^[a-zA-Z\s]{5,25}$"
-                           title="Customer name must be between 5 to 25 characters."
-                           onInput={(e) => {
-                              e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
-                             e.target.value = e.target.value.replace(/\s{2,}/g, ' ');
-                           }}
-                             onKeyDown={(e) => {
-                           if (e.key === ' ' && e.target.selectionStart === 0) {
-                               e.preventDefault();
-                             }
-                             }}
-                           required
-                               />
+                              <input
+                                type="text"
+                                id="customerName"
+                                class="form-control"
+                                value={customerName}
+                                onChange={(event) => {
+                                  const updatedValue = event.target.value;
+                                  setCustomerName(updatedValue);
+                                }}
+                                pattern="^[a-zA-Z\s]{5,25}$"
+                                title="Customer name must be between 5 to 25 characters."
+                                onInput={(e) => {
+                                  e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+                                  e.target.value = e.target.value.replace(/\s{2,}/g, ' ');
+                                }}
+                                onKeyDown={(e) => {
+                                  if (e.key === ' ' && e.target.selectionStart === 0) {
+                                    e.preventDefault();
+                                  }
+                                }}
+                                required
+                              />
 
                               <label class="form-label" for="customerName" >Your Name</label>
                             </div>
@@ -185,16 +185,16 @@ function Registration() {
                                 value={emailId}
                                 onChange={handleEmailChange}
                                 pattern="[a-zA-Z0-9._%+-]+@(gmail\.com)[a-zA-Z0-9.-]+\.(com|in|org|net)"
-                               title="Invalid email. Please use a Gmail address ending with .com, .in, .org, or .net."
+                                title="Invalid email. Please use a Gmail address ending with .com, .in, .org, or .net."
                                 onInput={(e) => {
-                                 e.target.value = e.target.value.replace(/\s{2,}/g, ' ');
-                               }}
-                                 onKeyDown={(e) => {
-                               if (e.key === ' ') {
-                                   e.preventDefault();
-                                 }
-                                 }}
-                                
+                                  e.target.value = e.target.value.replace(/\s{2,}/g, ' ');
+                                }}
+                                onKeyDown={(e) => {
+                                  if (e.key === ' ') {
+                                    e.preventDefault();
+                                  }
+                                }}
+
                                 required
                               />
                               <label class="form-label" for="form3Example3c">Your Email</label>
@@ -208,7 +208,7 @@ function Registration() {
                                 type="text"
                                 id="mobileNumber"
                                 class="form-control"
-                                value={mobileNumber.slice(0, 10)} 
+                                value={mobileNumber.slice(0, 10)}
                                 onChange={handleMobileNumberChange}
                                 onKeyDown={(e) => {
                                   if (e.key === ' ') {
@@ -244,9 +244,9 @@ function Registration() {
                                 }}
                                 onKeyDown={(e) => {
                                   if (e.key === ' ' && e.target.selectionStart === 0) {
-                                      e.preventDefault();
-                                    }
-                                    }}
+                                    e.preventDefault();
+                                  }
+                                }}
                                 required
                               />
                               <label class="form-label" for="address">Your Address</label>
@@ -257,84 +257,84 @@ function Registration() {
                               )}
                             </div>
                           </div>
-                    
+
 
                           <div className="d-flex flex-row align-items-center mb-4">
-      <i className="fas fa-venus-mars fa-lg me-3 fa-fw"></i>
-      <div className="form-outline flex-fill mb-0">
-        <input
-          type="text"
-          id="gender"
-          className={`form-control ${genderError ? 'is-invalid' : ''}`}
-          value={gender}
-          onChange={handleGenderChange}
-          pattern="^[a-zA-Z\s]{1,}$"
-          title="Gender must not be empty."
-          onInput={(e) => {
-            e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
-            e.target.value = e.target.value.replace(/\s{2,}/g, ' ');
-          }}
-          onKeyDown={(e) => {
-            if (e.key === ' ' && e.target.selectionStart === 0) {
-              e.preventDefault();
-            }
-          }}
-          required
-        />
-        <label className="form-label" htmlFor="gender">
-          Your Gender
-        </label>
-        {genderError && (
-          <div className="invalid-feedback">
-            Please enter a valid gender (male, female, others).
-          </div>
-        )}
-      </div>
-    </div>
+                            <i className="fas fa-venus-mars fa-lg me-3 fa-fw"></i>
+                            <div className="form-outline flex-fill mb-0">
+                              <input
+                                type="text"
+                                id="gender"
+                                className={`form-control ${genderError ? 'is-invalid' : ''}`}
+                                value={gender}
+                                onChange={handleGenderChange}
+                                pattern="^[a-zA-Z\s]{1,}$"
+                                title="Gender must not be empty."
+                                onInput={(e) => {
+                                  e.target.value = e.target.value.replace(/[^a-zA-Z\s]/g, '');
+                                  e.target.value = e.target.value.replace(/\s{2,}/g, ' ');
+                                }}
+                                onKeyDown={(e) => {
+                                  if (e.key === ' ' && e.target.selectionStart === 0) {
+                                    e.preventDefault();
+                                  }
+                                }}
+                                required
+                              />
+                              <label className="form-label" htmlFor="gender">
+                                Your Gender
+                              </label>
+                              {genderError && (
+                                <div className="invalid-feedback">
+                                  Please enter a valid gender (male, female, others).
+                                </div>
+                              )}
+                            </div>
+                          </div>
 
-    <div className="d-flex flex-row align-items-center mb-4">
-      <i className="fa-solid fa-heartbeat fa-lg me-3 fa-fw"></i>
-      <div className="form-outline flex-fill mb-0">
-        <input
-          type="text"
-          id="bloodGroup"
-          className={`form-control ${bloodGroupError ? 'is-invalid' : ''}`}
-          value={bloodGroup}
-          onChange={(event) => {
-            const updatedValue = event.target.value.toUpperCase();
-            setBloodGroup(updatedValue);
-            // setBloodGroupError(
-            //   !/^(A|B|AB|O+|\s*I\s*DONT\s*KNOW\s*|NO)[\s+-]*$/i.test(updatedValue)
-            // );
-            // setBloodGroupError(
-            //   !/^(A|B|AB|O)([+-]|(\s*I\s*DONT\s*KNOW\s*)|NO)$/i.test(updatedValue)
-            // );
-            setBloodGroupError(
-              !/^(A|B|AB|O)([+-](\s*I\s*DONT\s*KNOW\s*)?)?$/i.test(updatedValue)
-            );
-            
-            
-          }}
-          pattern="^(A|B|AB|O|\s*I\s*DONT\s*KNOW\s*|NO)[\s+-]*$"
-          title="Blood group must be in the format A+, B-, AB+, I DON'T KNOW Enter NO, etc."
-          onInput={(e) => {
-            e.target.value = e.target.value
-              .replace(/[^ABO+\-\sI\sDONT\sKNOW\sNO]/gi, '') // Allow only A, B, AB, O, +, -, I, spaces, 'I DONT KNOW', and 'NO'
-              .replace(/(\s+)/g, ' '); // Replace consecutive spaces with a single space
-          }}
-          required
-        />
-        <label className="form-label" htmlFor="bloodGroup">
-          Your Blood Group
-        </label>
-        {bloodGroupError && (
-          <div className="invalid-feedback">
-            Please enter a valid blood group in the format A+, B-, AB+, I DON'T KNOW, NO, etc.
-          </div>
-        )}
-      </div>
-    </div>
-                         
+                          <div className="d-flex flex-row align-items-center mb-4">
+                            <i className="fa-solid fa-heartbeat fa-lg me-3 fa-fw"></i>
+                            <div className="form-outline flex-fill mb-0">
+                              <input
+                                type="text"
+                                id="bloodGroup"
+                                className={`form-control ${bloodGroupError ? 'is-invalid' : ''}`}
+                                value={bloodGroup}
+                                onChange={(event) => {
+                                  const updatedValue = event.target.value.toUpperCase();
+                                  setBloodGroup(updatedValue);
+                                  // setBloodGroupError(
+                                  //   !/^(A|B|AB|O+|\s*I\s*DONT\s*KNOW\s*|NO)[\s+-]*$/i.test(updatedValue)
+                                  // );
+                                  // setBloodGroupError(
+                                  //   !/^(A|B|AB|O)([+-]|(\s*I\s*DONT\s*KNOW\s*)|NO)$/i.test(updatedValue)
+                                  // );
+                                  setBloodGroupError(
+                                    !/^(A|B|AB|O)([+-](\s*I\s*DONT\s*KNOW\s*)?)?$/i.test(updatedValue)
+                                  );
+
+
+                                }}
+                                pattern="^(A|B|AB|O|\s*I\s*DONT\s*KNOW\s*|NO)[\s+-]*$"
+                                title="Blood group must be in the format A+, B-, AB+, I DON'T KNOW Enter NO, etc."
+                                onInput={(e) => {
+                                  e.target.value = e.target.value
+                                    .replace(/[^ABO+\-\sI\sDONT\sKNOW\sNO]/gi, '') // Allow only A, B, AB, O, +, -, I, spaces, 'I DONT KNOW', and 'NO'
+                                    .replace(/(\s+)/g, ' '); // Replace consecutive spaces with a single space
+                                }}
+                                required
+                              />
+                              <label className="form-label" htmlFor="bloodGroup">
+                                Your Blood Group
+                              </label>
+                              {bloodGroupError && (
+                                <div className="invalid-feedback">
+                                  Please enter a valid blood group in the format A+, B-, AB+, I DON'T KNOW, NO, etc.
+                                </div>
+                              )}
+                            </div>
+                          </div>
+
                           <div class="d-flex flex-row align-items-center mb-4">
                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                             <div class="form-outline flex-fill mb-0">
@@ -385,7 +385,7 @@ function Registration() {
           </div>
         </section>
       </div>
-     
+
     </div>
   );
 }

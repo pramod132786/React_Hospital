@@ -16,6 +16,21 @@ import OutPatientSideBar from './DoctorModule/Components/OutPatientsSideBar';
 import BookMedicalService from './Patient/Components/BookMedicalService';
 import CommanLogin from './CommanLogin/CommanLogin';
 import InPatientsReports from './DoctorModule/Components/InPatientsReports';
+import Footer from './Home/Footer';
+import DoctorAppointmentBoard from './DoctorModule/Components/DoctorAppointmentBoard';
+import DoctorProfile from './DoctorModule/Components/DoctorProfile';
+import Head from './Home/Head';
+import Contact from './Home/Contact';
+import Surgery from './DoctorModule/Components/Surgery';
+import DoctorDetails from './DoctorModule/Components/DoctorDetails';
+import Appointments from './DoctorModule/Components/Appointments';
+import MyPatients from './DoctorModule/Components/MyPatients';
+import PatientHistory from './DoctorModule/Components/PatientHistory';
+import MedicalTestReport from './DoctorModule/Components/MedicalTestReport';
+import OutPatientsReports from './DoctorModule/Components/OutPatientsReport';
+
+
+
 
 
 function App() {
@@ -23,6 +38,7 @@ function App() {
     <div className="App">
 
        <BrowserRouter>
+       
        <Routes>
         <Route path="/" element={<Home></Home>}/>
         <Route path="/commanLogin" element={<CommanLogin></CommanLogin>}/>
@@ -31,14 +47,29 @@ function App() {
         <Route path="/Register" element={<Registration></Registration>}/>
         <Route path="/PatientRegister" element={<PatientRegistration></PatientRegistration>}/>
         <Route path="/PatientLogin" element={<PatientLogin></PatientLogin>}/>
-        <Route path="/PatientDashbord" element={<PatientHome></PatientHome>}/>
-        <Route path="/book-medical" element={<BookMedicalService></BookMedicalService>}/>
-        <Route path="/doctor" element={<DoctorDashboard></DoctorDashboard>}/>
-        <Route path="/in-patient" element={<InPatientBody />} />
-        <Route path="/out-patient" element={<OutPatientSideBar />} />
-        <Route path="/in-patient-reports" element={<InPatientsReports />} />
-        
+        <Route path="/PatientDashbord/:patinetId/*" element={<PatientHome></PatientHome>}/>
+        <Route path="/book-medical/:patinetId/*" element={<BookMedicalService></BookMedicalService>}/>
+        {/* <Route path="/doctor" element={<DoctorDashboard></DoctorDashboard>}/> */}
+        <Route path="/doctor/:doctorId/*" element={<DoctorDashboard />} />
+        <Route path="/in-patient/:doctorId/*" element={<InPatientBody />} />
+        <Route path="/out-patient/:doctorId/*" element={<OutPatientSideBar />} />
+        <Route path="/inpatinet-appointment/:patinetId/*" element={<DoctorAppointmentBoard />} />
+        <Route path="/in-patient-reports/:doctorId/*" element={<InPatientsReports />} />
+        <Route path="/doctor-profile/:doctorId/*" element={<DoctorProfile></DoctorProfile>}/>
+        <Route path="/footer" element={<Footer></Footer>}/>
+        <Route path="/head" element={<Head></Head>}/>
+        <Route path='/contact' element={<Contact></Contact>}/>
+        <Route path="/surgery" element={<Surgery></Surgery>}/>
+        <Route path="/doctordetails" element={<DoctorDetails></DoctorDetails>}/>
+        <Route path="/appointments" element={<Appointments></Appointments>}/>
+        <Route path="/my-patients" element={<MyPatients></MyPatients>}/>
+        <Route path="/patients-history" element={<PatientHistory/>}/>
+          
+        <Route path="/MedicalTestReport" element={<MedicalTestReport/>}/>
+        <Route path="/out-patients-report" element={<OutPatientsReports/>}/>
+            
        </Routes>
+       <Footer></Footer>
        </BrowserRouter>
 
       

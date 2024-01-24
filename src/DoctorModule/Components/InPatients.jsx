@@ -1,6 +1,6 @@
 import React from "react";
 import "./DoctorDashBoard.css";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, useNavigate, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faAlignLeft,
@@ -15,8 +15,9 @@ import InPatientBody from "./InPatientBody";
 import InPatientsReports from "./InPatientsReports";
 import DoctorDashboard from "./DoctorDashBoard";
 
-const InPatients = () => {
 
+const InPatients = () => {
+    const { doctorId } = useParams();
     const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
 
     const handleSidebarToggle = () => {
@@ -36,7 +37,7 @@ const InPatients = () => {
                 </div>
                 <ul className="list-unstyled components">
                     <li>
-                        <Link to="/doctor">
+                        <Link to={`/doctor/${doctorId}`}>
                             <FontAwesomeIcon icon={faChartLine} className="mr-2 me-2 " />
                             <span className="text-black">
                                 {!sidebarCollapsed ? 'Dashboard' : null}
@@ -53,7 +54,7 @@ const InPatients = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/in-patient-reports">
+                        <Link to= {`/in-patient-reports/${doctorId}`}>
                             <FontAwesomeIcon icon={faList} className="mr-2 me-2" />
                             <span className="text-black">
                                 {!sidebarCollapsed ? 'Test Reports' : null}
