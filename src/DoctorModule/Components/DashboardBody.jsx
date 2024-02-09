@@ -10,7 +10,7 @@
 // import { useParams } from 'react-router-dom';
 
 // function getGreeting() {
-    
+
 //     const currentHour = new Date().getHours();
 
 //     if (currentHour >= 0 && currentHour < 12) {
@@ -475,7 +475,7 @@ function DashboardBody() {
               <div className="container-fluid">
                 <form className="d-flex mb-2" onSubmit={handleSearch}>
                   <input
-                    className="form-control me-2 "
+                    className="form-control me-2 w-4"
                     type="search"
                     placeholder="Search Appointments "
                     aria-label="Search"
@@ -546,62 +546,7 @@ function DashboardBody() {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <p className="fs-4 fw-semibold text-md-start text-sm-start text-lg-start text-xl-start mt-2">My Appointments</p>
-              </div>
-              <div className="row mt-1">
-                <div className="col-md-12">
-                  <table className="table">
-                    <thead>
-                      <tr>
-                        <th>Name <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                        <th>phone <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                        {/* <th>Location <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th> */}
-                        <th>Dates <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                        <th>Time <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                        <th>Status <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                        <th>Grant <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {filteredReports.length === 0 ? (
-                        <tr>
-                          <td colSpan="8" className="text-center fst-italic fs-5 text-danger fw-semibold">No appointments found</td>
-                        </tr>
-                      ) : (
-                        filteredReports.map((report, index) => (
-                          <tr key={report.id}>
-                            <td>{report.name}</td>
-                            <td>{report.phone}</td>
-                            {/* <td>{report.location}</td> */}
-                            <td>{report.appointment}</td>
-                            <td>{report.timeSlot}</td>
-                            {/* <td>{report.appointmentStatus}</td> */}
-                            <td className={report.appointmentStatus === 'COMPLETE' ? 'text-success' : 'text-danger'}>
-                              {report.appointmentStatus}
-                            </td>
-                            {/* <td> <button type="button" class="btn btn-success btn-sm "  onClick={() => completeAppointment(report.id)}>Complete</button></td> */}
-                            <td>
-            {report.appointmentStatus !== 'complete' ? (
-              <button
-                type="button"
-                className="btn btn-success btn-sm"
-                onClick={() => completeAppointment(report.id)}
-              >
-                Complete
-              </button>
-            ) : (
-              <button className="btn bg-success btn-sm">Complete</button>
-            )}
-          </td>
 
-                          </tr>
-                        ))
-                      )}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
             </body>
           </div>
           <div className="col-md-4 col-sm-5 col-lg-">
@@ -610,13 +555,96 @@ function DashboardBody() {
                 {/* Navigation content */}
               </div>
             </nav>
-            <div>
-              <p className="fs-5 text-md-start text-sm-start text-lg-start text-xl-start  fw-semibold">Scheduled / Calendar</p>
+            <div className="text-center">
+              <p className="fs-4 mb-4 fwt-itaian  fw-bold text-primary">Profile </p>
             </div>
             <div className="row mt-1">
               <div className="col-md-12">
-                <Calendar />
+                <div class="container">
+
+                  <div class="card profile-card p-3 py-4">
+
+                    <div class="text-center">
+
+                      <img src="https://i.imgur.com/stD0Q19.jpg" width="100" class="rounded-circle" />
+
+                      <h3 class="mt-2">Maria Smantha</h3>
+                      <span class="mt-1 clearfix">Android Developer</span>
+                      <small class="mt-4">I am an android developer working at google Inc at california,USA</small>
+
+                      <div class="social-buttons mt-5">
+                        <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button>
+                        <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button>
+                        <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button>
+                        <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button>
+                        <button class="neo-button"><i class="fa fa-twitter fa-1x"></i> </button>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-12 col-sm-12 col-lg-" >
+          <div className="row">
+            <p className="fs-4 fw-semibold text-md-start text-sm-start text-lg-start text-xl-start mt-2">My Appointments</p>
+          </div>
+          <div className="row mt-1">
+            <div className="col-md-12 table-responsive">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Name <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                    <th>phone <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                    {/* <th>Location <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th> */}
+                    <th>Dates <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                    <th>Time <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                    <th>Status <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                    <th>Grant <FontAwesomeIcon icon={faArrowsUpDown} className="text-warning" /></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredReports.length === 0 ? (
+                    <tr>
+                      <td colSpan="8" className="text-center fst-italic fs-5 text-danger fw-semibold">No appointments found</td>
+                    </tr>
+                  ) : (
+                    filteredReports.map((report, index) => (
+                      <tr key={report.id}>
+                        <td>{report.name}</td>
+                        <td>{report.phone}</td>
+                        {/* <td>{report.location}</td> */}
+                        <td>{report.appointment}</td>
+                        <td>{report.timeSlot}</td>
+                        {/* <td>{report.appointmentStatus}</td> */}
+                        <td className={report.appointmentStatus === 'COMPLETE' ? 'text-success' : 'text-danger'}>
+                          {report.appointmentStatus}
+                        </td>
+                        {/* <td> <button type="button" class="btn btn-success btn-sm "  onClick={() => completeAppointment(report.id)}>Complete</button></td> */}
+                        <td>
+                          {report.appointmentStatus !== 'complete' ? (
+                            <button
+                              type="button"
+                              className="btn btn-success btn-sm"
+                              onClick={() => completeAppointment(report.id)}
+                            >
+                              Complete
+                            </button>
+                          ) : (
+                            <button className="btn bg-success btn-sm">Complete</button>
+                          )}
+                        </td>
+
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

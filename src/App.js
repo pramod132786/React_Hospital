@@ -28,6 +28,10 @@ import MyPatients from './DoctorModule/Components/MyPatients';
 import PatientHistory from './DoctorModule/Components/PatientHistory';
 import MedicalTestReport from './DoctorModule/Components/MedicalTestReport';
 import OutPatientsReports from './DoctorModule/Components/OutPatientsReport';
+import TechnicianProfile from './TechnicianProfile';
+import DialysisWeeklySheet from './TechnicianModule/Component/DailysisWeeklySheet';
+import InPatients from './DoctorModule/Components/InPatients';
+
 
 
 
@@ -51,7 +55,7 @@ function App() {
         <Route path="/book-medical/:patinetId/*" element={<BookMedicalService></BookMedicalService>}/>
         {/* <Route path="/doctor" element={<DoctorDashboard></DoctorDashboard>}/> */}
         <Route path="/doctor/:doctorId/*" element={<DoctorDashboard />} />
-        <Route path="/in-patient/:doctorId/*" element={<InPatientBody />} />
+        <Route path="/in-patient/:doctorId/*" element={<InPatients />} />
         <Route path="/out-patient/:doctorId/*" element={<OutPatientSideBar />} />
         <Route path="/inpatinet-appointment/:patinetId/*" element={<DoctorAppointmentBoard />} />
         <Route path="/in-patient-reports/:doctorId/*" element={<InPatientsReports />} />
@@ -67,7 +71,9 @@ function App() {
           
         <Route path="/MedicalTestReport" element={<MedicalTestReport/>}/>
         <Route path="/out-patients-report" element={<OutPatientsReports/>}/>
-            
+        <Route path='/technician-profile' element={<TechnicianProfile/>}/>
+         <Route path='/weekly-report' element={<DialysisWeeklySheet/>}/>  
+
        </Routes>
        <Footer></Footer>
        </BrowserRouter>

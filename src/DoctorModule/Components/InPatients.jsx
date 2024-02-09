@@ -25,7 +25,7 @@ const InPatients = () => {
     };
 
     return (
-        <div className="DoctorSide">
+        <div className="DoctorSide mb-3">
         <div className={`wrapper ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
             {/* Sidebar */}
             <nav id="sidebar" className={` ${sidebarCollapsed ? 'collapsed' : ''}`}>
@@ -92,6 +92,10 @@ const InPatients = () => {
                 >
                     <FontAwesomeIcon icon={faAlignLeft} />
                 </button>
+
+                <div  className="container-fuild">
+                    <InPatientBody/>
+                    </div>
                 
             </div>
         </div>

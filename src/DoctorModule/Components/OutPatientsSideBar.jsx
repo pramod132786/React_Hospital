@@ -12,6 +12,7 @@ import {
   
 } from "@fortawesome/free-solid-svg-icons";
 import InPatientBody from "./InPatientBody";
+import OutPatientBody from "./OutPatientBody";
 
 const OutPatientSideBar=()=>{
   const { doctorId } = useParams();
@@ -113,6 +114,11 @@ return(
         >
           <FontAwesomeIcon icon={faAlignLeft} />
         </button>
+
+        <div className="container-fuild">
+
+          <OutPatientBody/>
+        </div>
 
        
       </div>

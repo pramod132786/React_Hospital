@@ -1,0 +1,137 @@
+.technician-profile body {
+    background-color: #f9f9fa
+}
+
+.technician-profile .padding {
+    padding: 3rem !important
+}
+
+.technician-profile .user-card-full {
+    overflow: hidden;
+}
+
+.technician-profile .card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    box-shadow: 0 1px 20px 0 rgba(69,90,100,0.08);
+    border: none;
+    margin-bottom: 30px;
+}
+
+.technician-profile .m-r-0 {
+    margin-right: 0px;
+}
+
+.technician-profile .m-l-0 {
+    margin-left: 0px;
+}
+
+.technician-profile .user-card-full .user-profile {
+    border-radius: 5px 0 0 5px;
+}
+
+.technician-profile .bg-c-lite-green {
+        background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+    background: linear-gradient(to right, #ee5a6f, #f29263);
+}
+
+.technician-profile .user-profile {
+    padding: 20px 0;
+}
+
+.technician-profile .card-block {
+    padding: 1.25rem;
+}
+
+.technician-profile .m-b-25 {
+    margin-bottom: 25px;
+}
+
+.technician-profile .img-radius {
+    border-radius: 5px;
+}
+
+
+ 
+.technician-profile h6 {
+    font-size: 14px;
+}
+
+.technician-profile .card .card-block p {
+    line-height: 25px;
+}
+
+@media only screen and (min-width: 1400px){
+    .technician-profile p {
+    font-size: 14px;
+}
+}
+
+.technician-profile .card-block {
+    padding: 1.25rem;
+}
+
+.technician-profile .b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.technician-profile .m-b-20 {
+    margin-bottom: 20px;
+}
+
+.technician-profile .p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.technician-profile .card .card-block p {
+    line-height: 25px;
+}
+
+.technician-profile .m-b-10 {
+    margin-bottom: 10px;
+}
+
+.technician-profile .text-muted {
+    color: #919aa3 !important;
+}
+
+.technician-profile .b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.technician-profile .f-w-600 {
+    font-weight: 600;
+}
+
+.technician-profile .m-b-20 {
+    margin-bottom: 20px;
+}
+
+.technician-profile .m-t-40 {
+    margin-top: 20px;
+}
+
+.technician-profile .p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.technician-profile .m-b-10 {
+    margin-bottom: 10px;
+}
+
+.technician-profile .technician-profile .m-t-40 {
+    margin-top: 20px;
+}
+
+.technician-profile .user-card-full .social-link li {
+    display: inline-block;
+}
+
+.technician-profile .user-card-full .social-link li a {
+    font-size: 20px;
+    margin: 0 10px 0 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+

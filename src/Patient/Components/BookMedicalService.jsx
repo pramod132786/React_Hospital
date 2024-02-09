@@ -64,15 +64,16 @@ function BookMedicalService() {
     const handlePayment = (e) => {
         e.preventDefault();
         const data = {
-            patientDetails,
+            patientId:patientDetails.patientId,
+            patientName:patientDetails.patientName,
            selectedFields
            
         };
 
 
-        axios.post('your_backend_api/payment', data)
+        axios.post('http://localhost:9010/api/v1/book/medicalservice', data)
             .then(response => {
-
+                
                 console.log('Payment successful:', response.data);
             })
             .catch(error => {
